@@ -24,7 +24,7 @@ const PackingList = () => {
 };
 
 function Item({ name, isPacked }: ItemType) {
-  return isPacked && <li>{name}</li>;
+  return <li className="list-disc list-inside">{name} {isPacked ? "✅" : ""}</li>;
 }
 
 export default PackingList;

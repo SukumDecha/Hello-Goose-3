@@ -1,5 +1,6 @@
 import Welcome from "./components/Welcome";
 import WelcomeLayout from "./components/WelcomeLayout";
+import PackingList from "./components/packing-list/PackingList";
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
         <Welcome name="First" />
         <Welcome name="Sally" />
       </WelcomeLayout>
+
+      <PackingList />
     </>
   );
 }
