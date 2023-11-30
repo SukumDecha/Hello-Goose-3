@@ -4,27 +4,31 @@ export type ItemType = {
 };
 
 const items: ItemType[] = [
-    { isPacked: true, name: "Space suit" },
-    { isPacked: true, name: "Helmet with a golden leaf" },
-    { isPacked: false, name: "Photo of Tam" },
-    { isPacked: false, name: 'A copy of the book "The Right Stuff"' },
-    { isPacked: false, name: "Harry Potter Collection" },
-  ];
+  { isPacked: true, name: "Space suit" },
+  { isPacked: true, name: "Helmet with a golden leaf" },
+  { isPacked: false, name: "Photo of Tam" },
+  { isPacked: false, name: 'A copy of the book "The Right Stuff"' },
+  { isPacked: false, name: "Harry Potter Collection" },
+];
 
 const PackingList = () => {
-    const itemList = items.map((item) => (
-        <Item key={item.name} isPacked={item.isPacked} name={item.name} />
-      ));
+  const itemList = items.map((item, index) => (
+    <Item key={index} isPacked={item.isPacked} name={item.name} />
+  ));
   return (
-    <section className="p-5">
-      <h1 className="text-xl">Sally Ride's Packing List</h1>
+    <section className="p-5 bg-blue-400">
+      <h1 className="text-2xl">Sally Ride's Packing List</h1>
       <ul>{itemList}</ul>
     </section>
   );
 };
 
 function Item({ name, isPacked }: ItemType) {
-  return <li className="list-disc list-inside">{name} {isPacked ? "✅" : ""}</li>;
+  return (
+    <li className="list-disc list-inside">
+      {name} {isPacked ? "✅" : ""}
+    </li>
+  );
 }
 
 export default PackingList;
