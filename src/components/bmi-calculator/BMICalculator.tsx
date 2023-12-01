@@ -29,7 +29,7 @@ const BMICalculator = () => {
           onChange={(e) => setWeight(Number(e.target.value))}
         />
         <button
-          className="p-1 rounded-md outline outline-1"
+          className="button"
           type="submit"
           onClick={handleClick}
         >
