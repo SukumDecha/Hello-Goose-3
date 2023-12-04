@@ -1,4 +1,5 @@
 import './VisitButton.css'
+import { twMerge } from 'tailwind-merge'
 
 interface VisitButtonProps {
   class: string,
@@ -6,7 +7,7 @@ interface VisitButtonProps {
 }
 const VisitButton = ({color}: VisitButtonProps) => {
   return (
-    <button className={`btn text-5xl ${color}`}>
+    <button className={twMerge(`btn text-5xl ${color}`)}>
       Visit now
     </button>
   );
