@@ -1,0 +1,8 @@
+.btn {
+  @apply font-mansalva inline-block rounded-lg px-6 pb-2 pt-2.5 leading-normal text-5xl ;
+}
+
+.red {
+  color: white;
+  background-color: gray;
+}

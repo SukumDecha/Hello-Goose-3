@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         mansalva: ['Mansalva', 'sans-serif'],
+        
       },
     },
   },

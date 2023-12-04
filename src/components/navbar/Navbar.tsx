@@ -1,12 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-interface NavbarProps {
-  color: string; // Corrected the type
-}
-
-const Navbar = ({ color }: NavbarProps) => {
-  console.log(color);
+const Navbar = () => {
 
   return (
     <nav
@@ -33,6 +27,7 @@ const Navbar = ({ color }: NavbarProps) => {
         <img src="/assets/navbars/cart.png" alt="Cart" width={80} />
       </div>
     </nav>
+
   );
 };
 

@@ -1,7 +1,13 @@
-const VisitButton = () => {
+import './VisitButton.css'
+
+interface VisitButtonProps {
+  class: string,
+  color: string
+}
+const VisitButton = ({color}: VisitButtonProps) => {
   return (
-    <button className="font-mansalva btn bg-red-50 h-10">
-      Click me
+    <button className={`btn text-5xl ${color}`}>
+      Visit now
     </button>
   );
 };
