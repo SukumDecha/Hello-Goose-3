@@ -10,11 +10,11 @@ interface AppProps {
 const App = ({ color, major }: AppProps) => {
   // const [color, setColor] = useState(c);
   // const [major, setMajor] = useState(m);
-  
+
   return (
     /** Todo: wrap into json */
     <div className={`bg-linear-${color}`}>
-      <OpenHamburger/>
+      {/* <OpenHamburger/> */}
       <Navbar></Navbar>
       <Banner color={color} major={major}></Banner>
     </div>

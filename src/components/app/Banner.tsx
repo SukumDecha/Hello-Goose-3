@@ -13,10 +13,11 @@ const Banner = ({ color, major }: BannerProps) => {
       className={`bg-cover bg-center h-screen banner-${color} flex flex-col
         bg-bottom gap-0 items-center`}
     >
-      <div></div>
-      <div className="flex bg-cover bg-top h-[80%] border-4 goose-red ">
-        {/* Title */}
+      <div className="search-bar">
 
+      </div>
+      <div className="flex bg-cover bg-top w-[85%] h-full items-center mt-[-10%] goose-red">
+        {/* Title */}
         <div className="font-mansalva w-3/5 px-20 flex flex-col">
           <div className="text-7xl">{major}</div>
           <VisitButton color={color}></VisitButton>
