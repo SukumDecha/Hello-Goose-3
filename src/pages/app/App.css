@@ -1,0 +1,29 @@
+.bg-linear-red {
+  background: linear-gradient(
+    360deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 201, 201, 1) 50%,
+    rgba(251, 131, 131, 1) 90%,
+    rgba(238, 58, 57, 1) 100%
+  );
+}
+
+.bg-linear-blue {
+  background: linear-gradient(
+    360deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(217, 230, 248, 1) 50%,
+    rgba(134, 174, 232, 1) 90%,
+    rgba(119, 164, 229, 1) 100%
+  );
+}
+
+.bg-linear-orange {
+  background: linear-gradient(
+    360deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 232, 187, 1) 50%,
+    rgba(255, 191, 66, 1) 90%,
+    rgba(247, 146, 40, 1) 100%
+  );
+}
