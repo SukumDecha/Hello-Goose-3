@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route
           path="/"
-          element={<App color="blue" major="Faculty of Engineering" />}
+          element={<App color="orange" major="Faculty of Engineering" />}
         />
         <Route path="/category" element={<Category />} />
       </Routes>

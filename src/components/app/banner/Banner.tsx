@@ -1,4 +1,5 @@
-import VisitButton from "../VisitButton";
+import SearchBar from "../searchbar/SearchBar";
+import VisitButton from "../visitbutton/VisitButton";
 import "./Banner.css";
 
 interface BannerProps {
@@ -14,9 +15,9 @@ const Banner = ({ color, major }: BannerProps) => {
         bg-bottom gap-0 items-center`}
     >
       <div className="search-bar">
-
+        <SearchBar/>
       </div>
-      <div className="flex bg-cover bg-top w-[85%] h-full items-center mt-[-10%] goose-red">
+      <div className={`flex bg-cover bg-top w-[85%] h-full items-center mt-[-10%] goose-${color}`}>
         {/* Title */}
         <div className="font-mansalva w-3/5 px-20 flex flex-col">
           <div className="text-7xl">{major}</div>

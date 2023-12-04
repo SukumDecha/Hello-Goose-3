@@ -1,0 +1,23 @@
+.bg-linear-red {
+  background: linear-gradient(
+    360deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 201, 201, 1) 50%,
+    rgba(251, 131, 131, 1) 90%,
+    rgba(238, 58, 57, 1) 100%
+  );
+}
+
+.bg-linear-blue-c {
+    background: linear-gradient(180deg, #00284F 1.22%, #00284F 1.23%, #114977 8.51%, #2561A3 35.07%, rgba(134, 174, 232, 0.03) 100%);
+}
+
+.bg-linear-orange {
+  background: linear-gradient(
+    360deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 232, 187, 1) 50%,
+    rgba(255, 191, 66, 1) 90%,
+    rgba(247, 146, 40, 1) 100%
+  );
+}

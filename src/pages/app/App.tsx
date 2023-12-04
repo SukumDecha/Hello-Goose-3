@@ -1,6 +1,8 @@
-import Banner from "../../components/app/Banner";
+import Banner from "../../components/app/banner/Banner";
+import Content from "../../components/app/content/Content";
+import Card from "../../components/app/coupon/Card";
 import Navbar from "../../components/navbar/Navbar";
-import OpenHamburger from "../../components/navbar/OpenHamburger";
+
 import "./App.css";
 
 interface AppProps {
@@ -17,6 +19,51 @@ const App = ({ color, major }: AppProps) => {
       {/* <OpenHamburger/> */}
       <Navbar></Navbar>
       <Banner color={color} major={major}></Banner>
+
+      <Content color={color}>
+        <div className="w-full inline-flex overflow-scroll gap-4">
+          <Card
+            title="sale 10%"
+            subTitle="RNOVNEW10"
+            description="เมื่อช้อปครบ ฿4,000 สำหรับลูกค้าใหม่ stuket"
+          ></Card>
+          <Card
+            title="sale 10%"
+            subTitle="RNOVNEW10"
+            description="เมื่อช้อปครบ ฿4,000 สำหรับลูกค้าใหม่ stuket"
+          ></Card>
+          <Card
+            title="sale 10%"
+            subTitle="RNOVNEW10"
+            description="เมื่อช้อปครบ ฿4,000 สำหรับลูกค้าใหม่ stuket"
+          ></Card>
+          <Card
+            title="sale 10%"
+            subTitle="RNOVNEW10"
+            description="เมื่อช้อปครบ ฿4,000 สำหรับลูกค้าใหม่ stuket"
+          ></Card>
+          <Card
+            title="sale 10%"
+            subTitle="RNOVNEW10"
+            description="เมื่อช้อปครบ ฿4,000 สำหรับลูกค้าใหม่ stuket"
+          ></Card>
+          <Card
+            title="sale 10%"
+            subTitle="RNOVNEW10"
+            description="เมื่อช้อปครบ ฿4,000 สำหรับลูกค้าใหม่ stuket"
+          ></Card>
+          <Card
+            title="sale 10%"
+            subTitle="RNOVNEW10"
+            description="เมื่อช้อปครบ ฿4,000 สำหรับลูกค้าใหม่ stuket"
+          ></Card>
+          <Card
+            title="sale 10%"
+            subTitle="RNOVNEW10"
+            description="เมื่อช้อปครบ ฿4,000 สำหรับลูกค้าใหม่ stuket"
+          ></Card>
+        </div>
+      </Content>
     </div>
   );
 };
