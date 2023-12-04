@@ -8,21 +8,28 @@ interface BannerProps {
 
 const Banner = ({ color, major }: BannerProps) => {
   return (
+    /* Biggest background */
     <div
-      className={`bg-cover bg-center h-screen banner-${color} flex
+      className={`bg-cover bg-center h-screen banner-${color} flex flex-col
         bg-bottom gap-0 items-center`}
     >
-      <div className="font-mansalva w-2/5 px-20 flex flex-col">
-        <div className="text-7xl">{major}</div>
-        <VisitButton class="mt-10" color={color}></VisitButton>
-      </div>
+      <div></div>
+      <div className="flex bg-cover bg-top h-[80%] border-4 goose-red ">
+        {/* Title */}
 
-      <div className="flex justify-center ">
-        <img
-          src={`/assets/App/ducks/duck-${color}.png`}
-          alt={color}
-          className="ml-[-20rem] w-[90em] h-[40rem]"
-        />
+        <div className="font-mansalva w-3/5 px-20 flex flex-col">
+          <div className="text-7xl">{major}</div>
+          <VisitButton color={color}></VisitButton>
+        </div>
+        {/* Title */}
+
+        {/* <div className="flex justify-center w-full h-full">
+          <img
+            src={`/assets/App/ducks/duck-${color}.png`}
+            alt={color}
+            className="ml-[-20rem] w-full h-full"
+          />
+        </div> */}
       </div>
     </div>
   );

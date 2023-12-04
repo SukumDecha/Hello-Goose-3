@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.btn {
-  @apply inline-block rounded px-6 pb-2 pt-2.5 uppercase leading-normal text-white transition duration-150 ease-in-out focus:outline-none;
+@layer utilities {
+  @variants responsive {
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
 }

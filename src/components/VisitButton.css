@@ -1,8 +1,15 @@
 .btn {
-  @apply font-mansalva inline-block rounded-lg px-6 pb-2 pt-2.5 leading-normal text-5xl ;
+  @apply opacity-50 bg-slate-300 w-auto rounded-full py-3 px-6 drop-shadow-md;
 }
 
 .red {
-  color: white;
-  background-color: gray;
+  color: #680007;
+}
+
+.blue {
+  color: #00284f;
+}
+
+.orange {
+  color: #865422;
 }

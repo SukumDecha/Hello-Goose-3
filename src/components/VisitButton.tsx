@@ -1,15 +1,11 @@
-import './VisitButton.css'
-import { twMerge } from 'tailwind-merge'
+import "./VisitButton.css";
 
 interface VisitButtonProps {
-  class: string,
-  color: string
+  color: string;
 }
-const VisitButton = ({color}: VisitButtonProps) => {
+const VisitButton = ({ color }: VisitButtonProps) => {
   return (
-    <button className={twMerge(`btn text-5xl ${color}`)}>
-      Visit now
-    </button>
+    <button className={`text-4xl w-3/5 mt-10 ${color} btn`}>Visit now</button>
   );
 };
 
