@@ -14,16 +14,14 @@ const majorColor: Record<string, string> = {
   FiET: "orange",
 };
 
-// interface ProductListProps {
-//   searchFilter: string;
-// }
-
-interface DataProps {
+export interface ProductProps {
+  id: number;
   major: string;
   name: string;
   img: string;
   price: number;
 }
+
 const ProductList = () => {
   const { search } = useSearchContext();
 
@@ -32,16 +30,19 @@ const ProductList = () => {
       <div className="flex justify-center flex-wrap w-[90%] gap-8 my-8 p-12 ">
         {productData
           .filter((data) => data.name.includes(search))
-          .map(({ major, name, price, img }: DataProps, index: number) => (
-            <Product
-              key={index}
-              color={majorColor[major]}
-              textColor={textColor[major]}
-              product={name}
-              price={price}
-              imgPath={img}
-            />
-          ))}
+          .map(
+            ({ major, name, price, img, id }: ProductProps, index: number) => (
+              <Product
+                key={index}
+                id={id}
+                color={majorColor[major]}
+                textColor={textColor[major]}
+                product={name}
+                price={price}
+                imgPath={img}
+              />
+            )
+          )}
       </div>
     </div>
   );

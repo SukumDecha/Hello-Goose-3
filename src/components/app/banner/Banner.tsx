@@ -47,12 +47,12 @@ const Banner = () => {
       className={`bg-cover bg-center h-screen banner-${color} flex flex-col
         bg-bottom gap-0 items-center bg-transition`}
     >
-      <div className="search-bar z-50">
+      <div className="search-bar z-2">
         <SearchBar />
       </div>
       
       <div
-        className={`flex bg-cover bg-top w-[85%] h-full items-center mt-[-10%] goose-${color} bg-transition`}
+        className={`flex bg-cover bg-top w-[85%] h-full items-center mt-[-10%] goose-${color} bg-transition z-1`}
       >
         {/* Title */}
         <div>
