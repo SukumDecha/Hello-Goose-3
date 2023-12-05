@@ -16,6 +16,7 @@ const Navbar = () => {
         />
       </div>
       <div className="right flex justify-between items-center gap-6">
+        
         <Link to="/checkout">
           <img src="/assets/navbars/cart.png" alt="Cart" width={60} />
         </Link>

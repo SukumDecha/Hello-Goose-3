@@ -1,6 +1,6 @@
 import Banner from "../../components/app/banner/Banner";
-import Content from "../../components/app/content/Content";
 import CardSection from "../../components/app/coupon/CardSection";
+import ProductList from "../../components/app/product/ProductList";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 
@@ -20,11 +20,9 @@ const App = ({ color, major }: AppProps) => {
       {/* <OpenHamburger/> */}
       <Navbar></Navbar>
       <Banner color={color} major={major}></Banner>
-
-      <Content color={color}>
-        <CardSection color={color} />
-      </Content>
-      <Footer color={color}/>
+      <CardSection color={color} />
+      <ProductList ></ProductList>
+      <Footer color={color} />
     </div>
   );
 };

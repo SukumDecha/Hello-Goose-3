@@ -2,6 +2,7 @@ interface MemberProp {
   name: string;
   img: string;
 }
+
 function Member({ name, img }: MemberProp) {
   return (
     <div className="flex justify-center items-center w-[50%] justify-between">
