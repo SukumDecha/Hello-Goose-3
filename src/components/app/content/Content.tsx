@@ -1,12 +1,12 @@
 import { ReactElement } from "react";
-import "./Content.css"
+
 interface ContentProps {
   color: string;
   children: ReactElement;
 }
 
-const Content = ({ color, children }: ContentProps) => {
-  return <div className={`bg-linear-${color}-c h-[100em]`}>{children}</div>;
+const Content = ({ children }: ContentProps) => {
+  return <div className={`h-[100vh]`}>{children}</div>;
 };
 
 export default Content;
