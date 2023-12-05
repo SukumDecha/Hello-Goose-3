@@ -9,7 +9,7 @@ const Navbar = (props: Props) => {
     <nav className={`flex w-full items-center justify-between p-4 `}>
       <div className="left flex justify-between items-center gap-6">
         <button onClick={() => props.setOpen(true)}>
-          <img src="/assets/navbars/cart.png" alt="Cart" width={80} />
+          <img src="/assets/navbars/hamburger.png" alt="Hamburger" width={50} />
         </button>
         <img src="/assets/navbars/heart.png" alt="Heart" width={45} />
       </div>
