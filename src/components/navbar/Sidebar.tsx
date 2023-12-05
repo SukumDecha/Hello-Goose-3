@@ -27,13 +27,16 @@ const Sidebar = (props: Props) => {
   const [isEngOpen, setEngOpen] = useState(false);
   const [isFiETOpen, setFiETItOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
   const isClickOutSide = (e: any) => {
     if (e.target.id === "sidebar-backdrop") {
       console.log(e.target.id);
       props.setOpen(false);
     }
   };
+
   ref.current?.addEventListener("click", isClickOutSide);
+  
   return (
     <div
       className={`${

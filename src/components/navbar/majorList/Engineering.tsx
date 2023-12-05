@@ -1,7 +1,7 @@
 
 const Engineering = () => {
   return (
-<div className='flex flex-col ml-10 text-xl gap-5 mr-8'>
+<div className='flex flex-col ml-10 text-xl gap-5 mr-8 mt-4'>
     <span>Chemical Engineering</span>
     <span>Civil Engineering</span>
     <span>Computer Engineering</span>
