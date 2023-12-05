@@ -36,12 +36,12 @@ const Sidebar = (props: Props) => {
   };
 
   ref.current?.addEventListener("click", isClickOutSide);
-  
+
   return (
     <div
       className={`${
         props.isOpen ? "fixed" : "hidden"
-      } h-full w-full backdrop-blur-md z-100`}
+      } h-full w-full backdrop-blur-md z-50`}
       id="sidebar-backdrop"
       ref={ref}
     >

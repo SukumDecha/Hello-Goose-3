@@ -10,37 +10,35 @@ const majorTitle: Record<string, string> = {
   FiET: "Faculty of Industrial Education and Technology",
 };
 
-
-
 const Banner = () => {
   const { color, setColor } = useColorContext();
   const { major, setMajor } = useMajorContext();
-  
+
   const handleNext = () => {
-    if(color === 'blue') {
-      setColor('red');
-      setMajor('ENGINEER')
-    } else if(color === 'red') {
-      setColor('orange')
-      setMajor('FiET')
+    if (color === "blue") {
+      setColor("red");
+      setMajor("ENGINEER");
+    } else if (color === "red") {
+      setColor("orange");
+      setMajor("FiET");
     } else {
-      setColor('blue');
-      setMajor('SIT');
+      setColor("blue");
+      setMajor("SIT");
     }
-  }
+  };
 
   const handleBack = () => {
-    if(color === 'blue') {
-      setColor('orange');
-      setMajor('FiET')
-    } else if(color === 'orange') {
-      setColor('red')
-      setMajor('ENGINEER')
+    if (color === "blue") {
+      setColor("orange");
+      setMajor("FiET");
+    } else if (color === "orange") {
+      setColor("red");
+      setMajor("ENGINEER");
     } else {
-      setColor('blue');
-      setMajor('SIT');
+      setColor("blue");
+      setMajor("SIT");
     }
-  }
+  };
   return (
     /* Biggest background */
     <div
@@ -50,7 +48,7 @@ const Banner = () => {
       <div className="search-bar z-2">
         <SearchBar />
       </div>
-      
+
       <div
         className={`flex bg-cover bg-top w-[85%] h-full items-center mt-[-10%] goose-${color} bg-transition z-1`}
       >
@@ -63,7 +61,6 @@ const Banner = () => {
             onClick={handleBack}
           />
         </div>
-
 
         <div className="font-mansalva w-3/5 px-20 flex flex-col">
           <div className="text-7xl text-white">{majorTitle[major]}</div>

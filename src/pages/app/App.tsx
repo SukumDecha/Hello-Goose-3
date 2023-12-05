@@ -7,10 +7,9 @@ import Footer from "../../components/footer/Footer";
 import { ColorProvider, useColorContext } from "../../context/ColorContext";
 import { MajorProvider } from "../../context/MajorContext";
 import { SearchProvider } from "../../context/SearchContext";
-
-import "./App.css";
 import Sidebar from "../../components/navbar/Sidebar";
 import { useState } from "react";
+import "./App.css";
 
 const App = () => {
   return (
@@ -29,14 +28,16 @@ const AppContent = () => {
   const [isSidebarOpen, setSidebar] = useState(false);
 
   return (
-    <div className={`bg-transition bg-linear-${color}`}>
-      <Sidebar isOpen={isSidebarOpen} setOpen={setSidebar} />
-      <Navbar setOpen={setSidebar}></Navbar>
-      <Banner />
-      <CardSection />
-      <ProductList />
-      <Footer />
-    </div>
+    <>
+      <div className={`bg-transition bg-linear-${color}`}>
+        <Sidebar isOpen={isSidebarOpen} setOpen={setSidebar} />
+        <Navbar setOpen={setSidebar}></Navbar>
+        <Banner />
+        <CardSection />
+        <ProductList />
+        <Footer />
+      </div>
+    </>
   );
 };
 
