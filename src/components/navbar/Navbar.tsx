@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
-
-const Navbar = () => {
+type Props = {
+  setOpen: (b: boolean) => void
+}
+const Navbar = (props: Props) => {
 
   return (
     <nav
       className={`flex w-full items-center justify-between p-4 `}
     >
       <div className="left flex justify-between items-center gap-4">
-        <img src="/assets/navbars/cart.png" alt="Cart" width={80} />
+        <button onClick={()=>props.setOpen(true)}><img src="/assets/navbars/cart.png" alt="Cart" width={80} /></button>
         <img src="/assets/navbars/heart.png" alt="Heart" width={60} />
       </div>
       <div className="medium flex">
