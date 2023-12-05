@@ -4,9 +4,12 @@ import ProductDetails from "../../../components/products/details/ProductDetails"
 import { useProductContext } from "../../../context/ProductContext";
 import productData from "../../../data/data.json";
 import "./ProductDetailPage.css";
+import { useState } from "react";
+import Sidebar from "../../../components/navbar/Sidebar";
 
 const ProductDetailPage = () => {
   const { product } = useProductContext();
+  const [isSidebarOpen, setSidebar] = useState(false);
 
   const currentProduct: ProductProps | undefined = productData.find(
     (data) => data.id === +product
@@ -18,7 +21,8 @@ const ProductDetailPage = () => {
 
   return (
     <div className={`bg-${currentProduct.major} w-full h-full`}>
-      <Navbar></Navbar>
+      <Sidebar isOpen={isSidebarOpen} setOpen={setSidebar} />
+      <Navbar setOpen={setSidebar}></Navbar>
       <ProductDetails {...currentProduct} />
     </div>
   );
