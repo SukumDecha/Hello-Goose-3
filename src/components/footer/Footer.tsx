@@ -1,12 +1,10 @@
+import { useColorContext } from "../../context/ColorContext";
 import "./Footer.css";
 import { CreditBook } from "./credit/CreditBook";
 import Member from "./member/Member";
 
-interface FooterProps {
-  color: string;
-}
-
-function Footer({ color }: FooterProps) {
+function Footer() {
+  const { color } = useColorContext();
   return (
     <div
       className={`footer-bg-${color} flex justify-start items-center gap-4 py-6`}

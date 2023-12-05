@@ -1,28 +1,37 @@
+// App.tsx
+import Navbar from "../../components/navbar/Navbar";
 import Banner from "../../components/app/banner/Banner";
 import CardSection from "../../components/app/coupon/CardSection";
 import ProductList from "../../components/app/product/ProductList";
 import Footer from "../../components/footer/Footer";
-import Navbar from "../../components/navbar/Navbar";
+import { ColorProvider, useColorContext } from "../../context/ColorContext";
+import { MajorProvider } from "../../context/MajorContext";
+import { SearchProvider } from "../../context/SearchContext";
 
 import "./App.css";
 
-interface AppProps {
-  color: string;
-  major: string;
-}
-const App = ({ color, major }: AppProps) => {
-  // const [color, setColor] = useState(c);
-  // const [major, setMajor] = useState(m);
+const App = () => {
+  return (
+    <ColorProvider>
+      <MajorProvider>
+        <SearchProvider>
+          <AppContent />
+        </SearchProvider>
+      </MajorProvider>
+    </ColorProvider>
+  );
+};
+
+const AppContent = () => {
+  const { color } = useColorContext();
 
   return (
-    /** Todo: wrap into json */
-    <div className={`bg-linear-${color}`}>
-      {/* <OpenHamburger/> */}
-      <Navbar></Navbar>
-      <Banner color={color} major={major}></Banner>
-      <CardSection color={color} />
-      <ProductList ></ProductList>
-      <Footer color={color} />
+    <div className={`bg-transition bg-linear-${color}`}>
+      <Navbar />
+      <Banner />
+      <CardSection />
+      <ProductList />
+      <Footer />
     </div>
   );
 };

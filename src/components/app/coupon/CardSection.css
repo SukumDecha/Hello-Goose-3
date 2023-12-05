@@ -1,17 +1,32 @@
 .bg-linear-red-c {
-    background: linear-gradient(
-      360deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 201, 201, 1) 50%,
-      rgba(251, 131, 131, 1) 90%,
-      rgba(238, 58, 57, 1) 100%
-    );
-  }
-  
-  .bg-linear-blue-c {
-      background: linear-gradient(180deg, #00284F 1.22%, #00284F 1.23%, #114977 8.51%, #2561A3 35.07%, rgba(134, 174, 232, 0.03) 100%);
-  }
-  
-  .bg-linear-orange-c {
-    background: linear-gradient(180deg, #825120 1.22%, #825120 1.23%, #A86E34 8.51%, #FFBF42 35.07%, rgba(255, 191, 66, 0.05) 100%);
-  }
+  background: linear-gradient(
+    180deg,
+    #680007 1.22%,
+    #680007 1.23%,
+    #73060d 8.51%,
+    #f45959 35.07%,
+    rgba(251, 131, 131, 0.07) 100%
+  );
+}
+
+.bg-linear-blue-c {
+  background: linear-gradient(
+    180deg,
+    #00284f 1.22%,
+    #00284f 1.23%,
+    #114977 8.51%,
+    #2561a3 35.07%,
+    rgba(134, 174, 232, 0.03) 100%
+  );
+}
+
+.bg-linear-orange-c {
+  background: linear-gradient(
+    180deg,
+    #825120 1.22%,
+    #825120 1.23%,
+    #a86e34 8.51%,
+    #ffbf42 35.07%,
+    rgba(255, 191, 66, 0.05) 100%
+  );
+}

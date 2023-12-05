@@ -22,4 +22,6 @@
   background-image: url("/assets/App/ducks/duck-blue.png");
 }
 
-
+.bg-transition{
+  transition: background-image 0.8s ease-in-out;
+}

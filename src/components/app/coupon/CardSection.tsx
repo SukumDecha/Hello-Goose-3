@@ -1,9 +1,10 @@
+import { useColorContext } from "../../../context/ColorContext";
 import Card from "./Card";
 import "./CardSection.css";
-interface CardProps {
-  color: string;
-}
-const CardSection = ({ color }: CardProps) => {
+
+const CardSection = () => {
+  const { color } = useColorContext();
+
   return (
     <div
       className={`flex flex-col justify-center p-8 pt-24 bg-linear-${color}-c`}

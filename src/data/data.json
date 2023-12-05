@@ -3,63 +3,73 @@
     "id": 1,
     "name": "Nightmare Shirt",
     "price": 100,
-    "img": "/asset/products/nightmare-shirt.png",
+    "img": "/assets/products/nightmare-shirt.png",
     "major": "SIT"
   },
-  {
-    "id": 2,
-    "name": "React Book",
-    "price": 300,
-    "img": "/asset/products/react-book.png",
-    "major": "SIT"
-  },
-  {
-    "id": 3,
-    "name": "Striped T-shirt",
-    "price": 329,
-    "img": "/asset/products/striped-t-shirt.png",
-    "major": "SIT"
-  },
+
   {
     "id": 4,
     "name": "Hermes allback",
     "price": 31200,
-    "img": "/asset/products/hermes-bag.png",
+    "img": "/assets/products/hermes-bag.png",
     "major": "ENGINEER"
   },
-  {
-    "id": 5,
-    "name": "White T-Shirt",
-    "price": 99,
-    "img": "/asset/products/white-t-shirt.png",
-    "major": "ENGINEER"
-  },
-  {
-    "id": 6,
-    "name": "Calculus Book",
-    "price": 500,
-    "img": "/asset/products/calculus-book.png",
-    "major": "ENGINEER"
-  },
+
   {
     "id": 7,
     "name": "Canon Camera",
     "price": 16000,
-    "img": "/asset/products/canon-camera.png",
+    "img": "/assets/products/canon-camera.png",
     "major": "FiET"
   },
+
+  {
+    "id": 2,
+    "name": "React Book",
+    "price": 300,
+    "img": "/assets/products/react-book.png",
+    "major": "SIT"
+  },
+
+  {
+    "id": 5,
+    "name": "White T-Shirt",
+    "price": 99,
+    "img": "/assets/products/white-t-shirt.png",
+    "major": "ENGINEER"
+  },
+
   {
     "id": 8,
     "name": "Cordless Microphone",
     "price": 1200,
-    "img": "/asset/products/cordless-microphone.png",
+    "img": "/assets/products/cordless-microphone.png",
     "major": "FiET"
   },
+  
+  {
+    "id": 3,
+    "name": "Striped T-shirt",
+    "price": 329,
+    "img": "/assets/products/striped-t-shirt.png",
+    "major": "SIT"
+  },
+ 
+  
+  {
+    "id": 6,
+    "name": "Calculus Book",
+    "price": 500,
+    "img": "/assets/products/calculus-book.png",
+    "major": "ENGINEER"
+  },
+  
+ 
   {
     "id": 9,
-    "name": "705 Seven Shirt",
+    "name": "Seven Shirt",
     "price": 120,
-    "img": "/asset/products/705_shirt.png",
+    "img": "/assets/products/705_shirt.png",
     "major": "FiET"
   }
 ]
