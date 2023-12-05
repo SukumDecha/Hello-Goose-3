@@ -1,8 +1,24 @@
 import ColorButton from "./ColorButton/ColorButton";
 import { ProductProps } from "../../app/product/ProductList";
 import "./ProductDetails.css";
+import { useCartContext } from "../../../context/cart/CartContext";
+import { useNavigate } from "react-router-dom";
 
-const ProductDetails = ({ name, price, img, major }: ProductProps) => {
+const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
+  const navigate = useNavigate();
+  const { cart, setCart } = useCartContext();
+
+  const handleAddToCart = () => {
+    setCart((prev) => {
+      return [...prev, { id, quantity: 1 }];
+    });
+    setTimeout(() => {
+      navigate("/", { replace: true });
+    }, 500);
+
+    console.log(cart);
+  };
+
   return (
     <div className="flex justify-around items-center">
       <div className="flex flex-col items-center justify-center">
@@ -44,7 +60,9 @@ const ProductDetails = ({ name, price, img, major }: ProductProps) => {
         </div>
         <div className="flex flex-row items-center gap-20">
           <div
-            className={`flex justify-around items-center btn-${major} w-52 h-16 rounded-2xl p-4`}
+            onClick={handleAddToCart}
+            className={`flex justify-around items-center btn-${major} w-52 h-16 rounded-2xl p-4
+            hover:scale-105 cursor-pointer transition-transform duration-300`}
           >
             <img src="/assets/products/Cart.png" alt="cart" className="w-9" />
             <span className="text-xl">Add to cart</span>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useProductContext } from "../../../context/ProductContext";
+import { useProductContext } from "../../../context/details/ProductContext";
 import { motion } from "framer-motion";
 import "./Product.css";
 
