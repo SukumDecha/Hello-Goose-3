@@ -39,7 +39,7 @@ const Login = (props: Props) => {
     >
       <div
         id="login"
-        className="bg-[#73A1E4] w-[850px] h-[500px] flex justify-center items-center  rounded-3xl text-white"
+        className="bg-[#73A1E4] w-[850px] h-[500px] flex justify-center items-center  rounded-3xl text-white shadow-2xl"
       >
         <div className="flex justify-center items-center flex-col gap-4">
           <h1 className="text-center py-1 font-margarine   text-[32px] font-[400] leading-[normal] mb-6">

@@ -3,7 +3,7 @@ import { useColorContext } from "../../../context/ColorContext";
 import { ProductProps } from "../home/product/ProductList";
 import jsonData from "../../../data/data.json";
 import FavouriteCard from "./card/FavouriteCard";
-import ContinueShopping from "../cart/header/ContinueShopping";
+import ContinueShopping from "../cart/header/BackButton";
 import "./FavouriteList.css";
 const majorColor: Record<string, string> = {
   SIT: "blue",
@@ -31,9 +31,9 @@ export default function FavouriteList() {
 
   return (
     <div
-      className={`bg-cover bg-center h-screen banner-${color}  px-[3em] h-fit`}
+      className={`bg-cover bg-center h-screen banner-${color}  px-[3em] h-[100%]`}
     >
-      <div className="flex flex-col items-center w-full gap-8">
+      <div className="flex flex-col items-center w-full gap-8 pt-8">
         <div className="flex w-[70%] font-margarine text-white">
           <div className="text-5xl mr-auto">MY LIKES</div>
           <ContinueShopping />

@@ -1,21 +1,19 @@
-import Footer from "../../components/footer/Footer";
-import Sidebar from "../../components/navbar/Sidebar";
-import Navbar from "../../components/navbar/Navbar";
+import HeaderSection from "../../components/HeaderSection";
+import CartList from "../../components/pages/cart/contents/cartList/CartList";
+import SummaryCart from "../../components/pages/cart/footer/SummaryCart";
+import CartHeader from "../../components/pages/cart/header/CartHeader";
 import { useColorContext } from "../../context/ColorContext";
-import { useState } from "react";
-import MyCart from "../../components/pages/cart/header/MyCart";
 
+import "./CartPage.css";
 export default function CartPage() {
   const { color } = useColorContext();
-  const [isSidebarOpen, setSidebar] = useState(false);
-
   return (
     <div>
-      <div className={`bg-transition bg-linear-${color}`}>
-        <Sidebar isOpen={isSidebarOpen} setOpen={setSidebar} />
-        <Navbar setOpen={setSidebar}></Navbar>
-        <MyCart></MyCart>
-        <Footer />
+      <HeaderSection />
+      <div className={`bg-cover bg-center h-screen banner-${color}`}>
+        <CartHeader />
+        <CartList/>
+        <SummaryCart totalPrice={50} />
       </div>
     </div>
   );

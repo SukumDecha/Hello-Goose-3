@@ -1,14 +1,12 @@
 import { ProductProps } from "../../../components/pages/home/product/ProductList";
 import { useProductContext } from "../../../context/details/ProductContext";
 import { useState } from "react";
-
-import Navbar from "../../../components/navbar/Navbar";
 import ProductDetails from "../../../components/pages/products/ProductDetails";
-import Sidebar from "../../../components/navbar/Sidebar";
 import Login from "../../../components/pages/login/Login";
+import Navbar from "../../../components/shared/navbar/Navbar";
+import Sidebar from "../../../components/shared/navbar/Sidebar";
 import productData from "../../../data/data.json";
 import "./ProductDetailPage.css";
-
 const ProductDetailPage = () => {
   const { product } = useProductContext();
   const [isSidebarOpen, setSidebar] = useState(false);
@@ -23,11 +21,12 @@ const ProductDetailPage = () => {
   }
 
   return (
-    <div className={`bg-${currentProduct.major} w-full h-full`}>
+    <div className={`bg-${currentProduct.major} h-[100%] pb-20`}>
       <Sidebar isOpen={isSidebarOpen} setOpen={setSidebar} />
-      <Navbar setOpen={setSidebar} setLogin={setLogin}></Navbar>
       <Login isOpen={isLoginOpen} setOpen={setLogin} />
+      <Navbar setOpen={setSidebar} setLogin={setLogin}></Navbar>
       <ProductDetails {...currentProduct} />
+      {/* <Footer /> */}
     </div>
   );
 };

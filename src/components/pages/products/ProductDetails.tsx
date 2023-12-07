@@ -13,8 +13,6 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
   const { cart, setCart } = useCartContext();
   const { favourite, setFavourite } = useFavouriteContext();
 
-  console.log(favourite);
-
   const isFavorite = favourite.some((item) => item.id === id);
 
   const handleAddToCart = () => {
@@ -23,7 +21,7 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
     });
     setTimeout(() => {
       /* Should route into cart page */
-      navigate("/", { replace: true });
+      navigate("/cart", { replace: true });
     }, 100);
 
     console.log(cart);

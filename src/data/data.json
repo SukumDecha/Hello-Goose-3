@@ -4,7 +4,8 @@
     "name": "Nightmare Shirt",
     "price": 100,
     "img": "/assets/products/nightmare-shirt.png",
-    "major": "SIT"
+    "major": "SIT",
+    "type": "2"
   },
 
   {

@@ -1,6 +1,6 @@
-import Product from "./Product";
 import productData from "../../../../data/data.json";
 import { useSearchContext } from "../../../../context/SearchContext";
+import FavouriteCard from "../../favourite/card/FavouriteCard";
 
 const majorColor: Record<string, string> = {
   SIT: "blue",
@@ -26,7 +26,7 @@ const ProductList = () => {
           .filter((data) => data.name.includes(search))
           .map(
             ({ major, name, price, img, id }: ProductProps, index: number) => (
-              <Product
+              <FavouriteCard
                 key={index}
                 id={id}
                 color={majorColor[major]}

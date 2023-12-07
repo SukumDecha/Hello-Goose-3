@@ -1,0 +1,35 @@
+.light-red {
+  @apply text-red-400;
+}
+
+.light-blue {
+  @apply text-blue-400;
+}
+
+.light-orange {
+  @apply text-orange-400;
+}
+
+.cart-red {
+  @apply bg-red-400;
+}
+
+.cart-orange {
+  @apply bg-orange-400;
+}
+
+.cart-blue {
+  @apply bg-blue-300;
+}
+
+.btn-red {
+  @apply bg-red-600;
+}
+
+.btn-orange {
+  @apply bg-orange-600;
+}
+
+.btn-blue {
+  @apply bg-blue-600;
+}

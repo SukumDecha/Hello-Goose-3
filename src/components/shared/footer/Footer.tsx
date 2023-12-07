@@ -1,7 +1,8 @@
-import { useColorContext } from "../../context/ColorContext";
-import "./Footer.css";
+import { useColorContext } from "../../../context/ColorContext";
 import { CreditBook } from "./credit/CreditBook";
 import Member from "./member/Member";
+
+import "./Footer.css";
 
 function Footer() {
   const { color } = useColorContext();
