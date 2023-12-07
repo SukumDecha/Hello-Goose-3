@@ -38,7 +38,7 @@ const FavouriteCard = (props: FavouriteCardProps) => {
                 <div>
                   {isFavorite && (
                     <img
-                      src="/public/assets/products/heartFill.png"
+                      src="/assets/products/heartFill.png"
                       alt={props.product}
                       width={30}
                     />
