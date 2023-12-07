@@ -20,11 +20,9 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category" element={<ProductCategory />} />
-
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/favourite" element={<FavouritePage />} />
-          <Route path="/login" element={<LoginPage />} />
           <Route path="/details" element={<ProductDetailPage />} />
         </Routes>
       </div>
