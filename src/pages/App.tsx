@@ -5,7 +5,6 @@ import ProductDetailPage from "./product/details/ProductDetailPage";
 import CheckoutPage from "./checkout/CheckoutPage";
 import CartPage from "./cart/CartPage";
 import FavouritePage from "./favourite/FavouritePage";
-import LoginPage from "./login/LoginPage";
 import HomePage from "./home/HomePage";
 
 import { useColorContext } from "../context/ColorContext";
