@@ -12,7 +12,7 @@ const Navbar = (props: Props) => {
         <button onClick={() => props.setOpen(true)} className="hover">
           <img src="/assets/navbars/hamburger.png" alt="Hamburger" width={50} />
         </button>
-        <Link to="/favourites" className="hover">
+        <Link to="/favourite" className="hover">
           <img src="/assets/navbars/heart.png" alt="Heart" width={45} />
         </Link>
       </div>
