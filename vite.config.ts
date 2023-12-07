@@ -1,10 +1,14 @@
-import { defineConfig } from 'vite';
-import React from 'react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  // ... other configurations
+  plugins: [react()],
+})
 
-  optimizeDeps: {
-    include: ['react-router-dom'],
-  },
-});
+// export default defineConfig({
+//   // ... other configurations
+
+//   optimizeDeps: {
+//     include: ['react-router-dom'],
+//   },
+// });
