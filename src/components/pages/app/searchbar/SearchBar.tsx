@@ -1,4 +1,4 @@
-import { useSearchContext } from "../../../context/SearchContext";
+import { useSearchContext } from "../../../../context/SearchContext";
 
 export default function SearchBar() {
   const { search, setSearch } = useSearchContext();

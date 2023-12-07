@@ -1,6 +1,6 @@
-import { ProductProps } from "../../../components/app/product/ProductList";
+import { ProductProps } from "../../../components/pages/app/product/ProductList";
 import Navbar from "../../../components/navbar/Navbar";
-import ProductDetails from "../../../components/products/details/ProductDetails";
+import ProductDetails from "../../../components/pages/products/details/ProductDetails";
 import { useProductContext } from "../../../context/details/ProductContext";
 import productData from "../../../data/data.json";
 import "./ProductDetailPage.css";

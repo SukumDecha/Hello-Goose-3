@@ -1,0 +1,23 @@
+.bg-red {
+  @apply bg-red-500;
+}
+
+.bg-blue {
+  @apply bg-blue-500;
+}
+
+.bg-orange {
+  @apply bg-orange-500;
+}
+
+.text-red {
+  @apply text-red-600;
+}
+
+.text-blue {
+  @apply text-blue-600;
+}
+
+.text-orange {
+  @apply text-orange-600;
+}

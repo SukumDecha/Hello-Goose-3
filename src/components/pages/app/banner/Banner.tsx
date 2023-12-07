@@ -1,7 +1,9 @@
-import { useColorContext } from "../../../context/ColorContext";
-import { useMajorContext } from "../../../context/MajorContext";
+import { useState } from "react";
+import { useColorContext } from "../../../../context/ColorContext";
+import { useMajorContext } from "../../../../context/MajorContext";
 import SearchBar from "../searchbar/SearchBar";
 import VisitButton from "../visitbutton/VisitButton";
+import { CSSTransition } from "react-transition-group"; // Import CSSTransition
 import "./Banner.css";
 
 const majorTitle: Record<string, string> = {
@@ -13,8 +15,22 @@ const majorTitle: Record<string, string> = {
 const Banner = () => {
   const { color, setColor } = useColorContext();
   const { major, setMajor } = useMajorContext();
+  const [isChanging, setIsChanging] = useState(false);
+  // const [toast, setToast] = useState<ToastProps | null>(null);
+
+  // const showToast = () => {
+  //   setToast({ message: "Success", type: "success" });
+  //   setTimeout(() => {
+  //     setToast(null);
+  //   }, 3000);
+  // };
 
   const handleNext = () => {
+    setIsChanging(true);
+    setTimeout(() => {
+      setIsChanging(false);
+    }, 500);
+
     if (color === "blue") {
       setColor("red");
       setMajor("ENGINEER");
@@ -28,6 +44,11 @@ const Banner = () => {
   };
 
   const handleBack = () => {
+    setIsChanging(true);
+    setTimeout(() => {
+      setIsChanging(false);
+    }, 500);
+
     if (color === "blue") {
       setColor("orange");
       setMajor("FiET");
@@ -39,12 +60,19 @@ const Banner = () => {
       setMajor("SIT");
     }
   };
+
   return (
-    /* Biggest background */
     <div
-      className={`bg-cover bg-center h-screen banner-${color} flex flex-col
-        bg-bottom gap-0 items-center bg-transition`}
+      className={`bg-cover bg-center h-screen banner-${color} flex flex-col bg-bottom gap-0 items-center bg-transition`}
     >
+      {/* {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )} */}
+
       <div className="search-bar z-2">
         <SearchBar />
       </div>
@@ -52,7 +80,6 @@ const Banner = () => {
       <div
         className={`flex bg-cover bg-top w-[85%] h-full items-center mt-[-10%] goose-${color} bg-transition z-1`}
       >
-        {/* Title */}
         <div>
           <img
             src="/assets/App/banners/leftArrow.png"
@@ -63,8 +90,25 @@ const Banner = () => {
         </div>
 
         <div className="font-mansalva w-3/5 px-20 flex flex-col">
-          <div className="text-7xl text-white">{majorTitle[major]}</div>
-          <VisitButton color={color}></VisitButton>
+          {/* Wrap the content with CSSTransition */}
+
+          <CSSTransition
+            in={isChanging}
+            timeout={500}
+            classNames="div-transition"
+          >
+            <div>
+              <div
+                className={`text-7xl text-white ${isChanging ? "shake" : ""}`}
+              >
+                {majorTitle[major]}
+              </div>
+              <VisitButton
+                color={color}
+                className={isChanging ? "shake" : ""}
+              ></VisitButton>
+            </div>
+          </CSSTransition>
         </div>
         <div>
           <img

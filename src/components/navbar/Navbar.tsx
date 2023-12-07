@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import "./Navbar.css";
 type Props = {
   setOpen: (b: boolean) => void;
 };
@@ -11,11 +11,13 @@ const Navbar = (props: Props) => {
         <button onClick={() => props.setOpen(true)}>
           <img src="/assets/navbars/hamburger.png" alt="Hamburger" width={50} />
         </button>
-        <img src="/assets/navbars/heart.png" alt="Heart" width={45} />
+        <Link to="/favourites" className="hover">
+          <img src="/assets/navbars/heart.png" alt="Heart" width={45} />
+        </Link>
       </div>
 
       <Link to="/">
-        <div className="medium flex">
+        <div className="flex hover">
           <img
             src="/assets/navbars/stuket.png"
             alt="Stuket"
@@ -26,12 +28,12 @@ const Navbar = (props: Props) => {
       </Link>
 
       <div className="right flex justify-between items-center gap-6">
-        <Link to="/checkout">
+        <Link to="/checkout" className="hover">
           <img src="/assets/navbars/cart.png" alt="Cart" width={60} />
         </Link>
 
         <img
-          className="mt-6"
+          className="mt-6 hover"
           src="/assets/navbars/icon-profile.png"
           alt="Profile"
           width={70}

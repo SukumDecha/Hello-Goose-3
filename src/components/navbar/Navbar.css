@@ -1,0 +1,3 @@
+.hover {
+  @apply hover:scale-90 cursor-pointer transition-transform duration-300;
+}

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { useProductContext } from "../../../context/details/ProductContext";
 import { motion } from "framer-motion";
-import "./Product.css";
+import { useProductContext } from "../../../context/details/ProductContext";
+import "./FavouriteCard.css";
 
-type ProductProps = {
+type FavouriteCardProps = {
   id: number;
   color: string;
   textColor: string;
@@ -12,7 +12,7 @@ type ProductProps = {
   price: number;
 };
 
-const Product = (props: ProductProps) => {
+const FavouriteCard = (props: FavouriteCardProps) => {
   const { setProduct } = useProductContext();
 
   const handleClick = () => {
@@ -28,14 +28,19 @@ const Product = (props: ProductProps) => {
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
         <div onClick={handleClick}>
-          <div className={`bg-${props.color} w-full h-[260px] rounded-2xl`}>
-            <div className="flex flex-col bg-gradient-to-t from-slate-50/60 to-slate-500/5 rounded-2xl w-[250px] h-[260px]">
+          <div className={`bg-${props.color} w-full h-auto rounded-2xl`}>
+            <div className="flex flex-col bg-gradient-to-t from-slate-50/60 to-slate-500/5 rounded-2xl w-[250px] h-full">
+              <div className="flex justify-end px-[5%] pt-[5%]">
+                <div>
+                  <img
+                    src="/public/assets/products/heartFill.png"
+                    alt={props.product}
+                    width={30}
+                  />
+                </div>
+              </div>
               <div className="flex justify-center h-[65%]">
-                <img
-                  src={props.imgPath}
-                  alt="productImg"
-                  className="px-10 pt-4"
-                />
+                <img src={props.imgPath} alt="productImg" className="px-10 " />
               </div>
               <div
                 className={`text-${props.textColor} flex justify-between items-center mx-10 my-2 text-lg font-margarine`}
@@ -51,4 +56,4 @@ const Product = (props: ProductProps) => {
   );
 };
 
-export default Product;
+export default FavouriteCard;

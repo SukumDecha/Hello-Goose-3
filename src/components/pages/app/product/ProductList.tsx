@@ -1,12 +1,6 @@
 import Product from "./Product";
-import productData from "../../../data/data.json";
-import { useSearchContext } from "../../../context/SearchContext";
-
-const textColor: Record<string, string> = {
-  SIT: "blue",
-  ENGINEER: "red",
-  FiET: "orange",
-};
+import productData from "../../../../data/data.json";
+import { useSearchContext } from "../../../../context/SearchContext";
 
 const majorColor: Record<string, string> = {
   SIT: "blue",
@@ -36,7 +30,7 @@ const ProductList = () => {
                 key={index}
                 id={id}
                 color={majorColor[major]}
-                textColor={textColor[major]}
+                textColor={majorColor[major]}
                 product={name}
                 price={price}
                 imgPath={img}

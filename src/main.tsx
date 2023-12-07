@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./pages/app/App.tsx";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ProductProvider } from "./context/details/ProductContext.tsx";
@@ -12,27 +11,33 @@ import CheckoutPage from "./pages/checkout/CheckoutPage.tsx";
 import ProductDetailPage from "./pages/product/details/ProductDetailPage.tsx";
 import CartPage from "./pages/cart/CartPage.tsx";
 import ProductCategory from "./pages/product/categories/ProductCategory.tsx";
+import { FavourteProvider } from "./context/favourite/FavouriteContext.tsx";
+import FavouritePage from "./pages/favourite/FavouritePage.tsx";
+import AppContent from "./pages/app/App.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <CartProvider>
-        <ColorProvider>
-          <MajorProvider>
-            <SearchProvider>
-              <ProductProvider>
-                <Routes>
-                  <Route path="/" element={<App />} />
-                  <Route path="/category" element={<ProductCategory />} />
-                  <Route path="/details" element={<ProductDetailPage />} />
-                  <Route path="/checkout" element={<CheckoutPage />} />
-                  <Route path="/cart" element={<CartPage />} />
-                </Routes>
-              </ProductProvider>
-            </SearchProvider>
-          </MajorProvider>
-        </ColorProvider>
-      </CartProvider>
+      <FavourteProvider>
+        <CartProvider>
+          <ColorProvider>
+            <MajorProvider>
+              <SearchProvider>
+                <ProductProvider>
+                  <Routes>
+                    <Route path="/" element={<AppContent />} />
+                    <Route path="/category" element={<ProductCategory />} />
+                    <Route path="/details" element={<ProductDetailPage />} />
+                    <Route path="/checkout" element={<CheckoutPage />} />
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="/favourites" element={<FavouritePage />} />
+                  </Routes>
+                </ProductProvider>
+              </SearchProvider>
+            </MajorProvider>
+          </ColorProvider>
+        </CartProvider>
+      </FavourteProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
