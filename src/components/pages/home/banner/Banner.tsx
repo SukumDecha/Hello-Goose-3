@@ -3,7 +3,6 @@ import { useColorContext } from "../../../../context/ColorContext";
 import { useMajorContext } from "../../../../context/MajorContext";
 import SearchBar from "../searchbar/SearchBar";
 import VisitButton from "../visitbutton/VisitButton";
-import { CSSTransition } from "react-transition-group"; // Import CSSTransition
 import "./Banner.css";
 
 const majorTitle: Record<string, string> = {
@@ -92,23 +91,13 @@ const Banner = () => {
         <div className="font-mansalva w-3/5 px-20 flex flex-col">
           {/* Wrap the content with CSSTransition */}
 
-          <CSSTransition
-            in={isChanging}
-            timeout={500}
-            classNames="div-transition"
-          >
-            <div>
-              <div
-                className={`text-7xl text-white ${isChanging ? "shake" : ""}`}
-              >
-                {majorTitle[major]}
-              </div>
-              <VisitButton
-                color={color}
-                className={isChanging ? "shake" : ""}
-              ></VisitButton>
-            </div>
-          </CSSTransition>
+          <div className={`text-7xl text-white ${isChanging ? "shake" : ""}`}>
+            {majorTitle[major]}
+          </div>
+          <VisitButton
+            color={color}
+            className={`hover-small ${isChanging ? "shake" : ""}`}
+          ></VisitButton>
         </div>
         <div>
           <img
