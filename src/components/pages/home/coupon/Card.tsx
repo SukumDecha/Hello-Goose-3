@@ -7,7 +7,7 @@ type CardProps = {
 const Card = (props: CardProps) => {
   return (
     <div className="hover-small">
-      <div className="drop-shadow-xl text-[#0652C0] bg-[#F9D77E] w-72 rounded-xl">
+      <div className="drop-shadow-xl text-[#0652C0] bg-[#F9D77E] w-72 rounded-xl h-40">
         <div className="p-4">
           <span>
             <strong className="text-xl bg-white p-2 rounded-xl">

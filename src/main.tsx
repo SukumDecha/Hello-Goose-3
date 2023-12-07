@@ -13,7 +13,7 @@ import CartPage from "./pages/cart/CartPage.tsx";
 import ProductCategory from "./pages/product/categories/ProductCategory.tsx";
 import { FavourteProvider } from "./context/favourite/FavouriteContext.tsx";
 import FavouritePage from "./pages/favourite/FavouritePage.tsx";
-import AppContent from "./pages/app/App.tsx";
+import AppContent from "./pages/home/App.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

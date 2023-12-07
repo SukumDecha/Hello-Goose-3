@@ -9,3 +9,7 @@
 .btn-FiET {
   background-color: #86aee8;
 }
+
+.hover-btn {
+  @apply hover:scale-125 cursor-pointer transition-transform duration-300;
+}

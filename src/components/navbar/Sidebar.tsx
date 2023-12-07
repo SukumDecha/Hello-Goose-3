@@ -22,6 +22,7 @@ const minusIcon = (
     alt="minus_icon"
   />
 );
+
 const Sidebar = (props: Props) => {
   const [isItOpen, setItOpen] = useState(false);
   const [isEngOpen, setEngOpen] = useState(false);

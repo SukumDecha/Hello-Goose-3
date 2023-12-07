@@ -1,12 +1,12 @@
-import ColorButton from "./ColorButton/ColorButton";
-import { ProductProps } from "../../app/product/ProductList";
+import ColorButton from "./button/ColorButton";
+import { ProductProps } from "../home/product/ProductList";
 import "./ProductDetails.css";
-import { useCartContext } from "../../../../context/cart/CartContext";
+import { useCartContext } from "../../../context/cart/CartContext";
 import { useNavigate } from "react-router-dom";
 import {
   FavouriteProps,
   useFavouriteContext,
-} from "../../../../context/favourite/FavouriteContext";
+} from "../../../context/favourite/FavouriteContext";
 
 const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
   const navigate = useNavigate();
@@ -70,7 +70,7 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
           <div className="flex flex-col font-serif text-l tracking-wide gap-2">
             <span className="text-gray-300">PRICE</span>
             <span className={`text-[#0447A6] text-3xl font-medium`}>
-              $ {price}
+              ฿ {price}
             </span>
           </div>
           <div className={`flex flex-col font-serif tracking-wide gap-2`}>
@@ -97,7 +97,7 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
             <span className="text-xl">Add to cart</span>
           </div>
 
-          <div className="hover-big" onClick={handleToggleFavourite}>
+          <div className="hover-btn" onClick={handleToggleFavourite}>
             {isFavorite ? (
               <img
                 src="/assets/products/heartFill.png"

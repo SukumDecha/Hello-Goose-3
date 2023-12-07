@@ -1,9 +1,10 @@
 import { useFavouriteContext } from "../../../context/favourite/FavouriteContext";
 import { useColorContext } from "../../../context/ColorContext";
-import { ProductProps } from "../app/product/ProductList";
+import { ProductProps } from "../home/product/ProductList";
 import jsonData from "../../../data/data.json";
+import FavouriteCard from "./card/FavouriteCard";
+import ContinueShopping from "../cart/header/ContinueShopping";
 import "./FavouriteList.css";
-import FavouriteCard from "./FavouriteCard";
 const majorColor: Record<string, string> = {
   SIT: "blue",
   ENGINEER: "red",
@@ -30,15 +31,15 @@ export default function FavouriteList() {
 
   return (
     <div
-      className={`bg-cover bg-center h-screen banner-${color}  px-[3em] h-full`}
+      className={`bg-cover bg-center h-screen banner-${color}  px-[3em] h-fit`}
     >
-      <div className="flex flex-col items-center w-full border-4 gap-8">
-        <div className="flex w-[70%] ">
-          <div className="font-mansalva text-5xl mr-auto">My Likes</div>
-          <div className="border-2 border-blue-300"> Continue Shopping</div>
+      <div className="flex flex-col items-center w-full gap-8">
+        <div className="flex w-[70%] font-margarine text-white">
+          <div className="text-5xl mr-auto">MY LIKES</div>
+          <ContinueShopping />
         </div>
 
-        <div className="flex flex-wrap justify-center gap-12 px-12 border-4 border-red-500 mb-8">
+        <div className="flex flex-wrap justify-center gap-12 px-12 mb-10">
           {favoriteItems}
         </div>
       </div>
