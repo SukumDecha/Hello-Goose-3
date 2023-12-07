@@ -65,7 +65,7 @@ const SummaryCart = ({ totalPrice }: SummaryCartProps) => {
           <div
             className={`flex justify-between mt-2 p-2.5 rounded-2xl bg-${color} hover-big`}
           >
-            <span className={`text-white text-sm`}>subtotal</span>
+            <span className={`text-white text-sm`}>Check out</span>
             <span className={`text-white text-sm`}>{`฿ ${totalPrice}`}</span>
           </div>
         </div>

@@ -2,6 +2,7 @@ import IT from "./majorList/IT";
 import Engineering from "./majorList/Engineering";
 import FiET from "./majorList/FiET";
 import { useRef, useState } from "react";
+import { useColorContext } from "../../../context/ColorContext";
 
 type Props = {
   isOpen: boolean;
@@ -27,6 +28,7 @@ const Sidebar = (props: Props) => {
   const [isItOpen, setItOpen] = useState(false);
   const [isEngOpen, setEngOpen] = useState(false);
   const [isFiETOpen, setFiETItOpen] = useState(false);
+  const { color } = useColorContext();
   const ref = useRef<HTMLDivElement>(null);
 
   const isClickOutSide = (e: any) => {
@@ -47,7 +49,11 @@ const Sidebar = (props: Props) => {
       ref={ref}
     >
       <div
-        className={` h-full w-full md:w-96 bg-slate-100 m-0 overflow-scroll no-scrollbar`}
+        className={` h-full w-full md:w-96 bg-${color} m-0 overflow-scroll no-scrollbar`}
+        id="sidebar"
+      >
+      <div
+        className={` h-full w-full md:w-96 bg-slate-100/40 m-0 overflow-scroll no-scrollbar`}
         id="sidebar"
       >
         <div className="flex flex-row justify-start m-8 items-center">
@@ -103,6 +109,7 @@ const Sidebar = (props: Props) => {
         </div>
         <div className="h-8"></div>
       </div>
+    </div>
     </div>
   );
 };
