@@ -7,9 +7,9 @@ import Stepper from "../../components/pages/checkout/stepper/Stepper";
 export default function CheckoutPage() {
   const [currentStep, setCurrentStep] = useState(2);
   return (
-    <div className="bg-[#86AEE8] flex flex-col gap-10 h-screen items-center justify-center">
-      <Stepper currentStep={currentStep}/>
-      <div className="bg-[#528FE9] w-[850px] h-[500px] flex flex-col justify-center  rounded-3xl   ">
+    <div className="bg-[#86AEE8] flex flex-col gap-10 h-screen items-center justify-center ">
+      <Stepper currentStep={currentStep} />
+      <div className="bg-[#528FE9] w-[80%] h-[70%] flex flex-col justify-center  rounded-3xl p-8">
         <ProductSection />
         <AddressSection />
         <PaymentSection setCurrentStep={setCurrentStep} />
