@@ -1,3 +1,5 @@
+import ProductItem from "./product/ProductItem";
+
 export const ProductSection = () => {
   return (
     <div>
@@ -11,7 +13,8 @@ export const ProductSection = () => {
           </div>
         </div>
 
-        <div className="flex justify-between text-2xl mb-2  ">
+        <ProductItem title="hey" major="SIT" quantity={5} price={100} />
+        {/* <div className="flex justify-between text-2xl mb-2  ">
           <div className="w-4/12 ml-4 text-white text-lg">
             <div className="font-margarine">
               <h1> Hermes Allblack Backpack </h1>
@@ -49,7 +52,7 @@ export const ProductSection = () => {
               31,320 B
             </span>
           </div>
-        </div>
+        </div> */}
         <hr className="bg-white mx-3 my-7" />
       </div>
     </div>
