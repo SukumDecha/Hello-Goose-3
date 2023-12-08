@@ -5,7 +5,7 @@ import jsonData from "../../../libs/data/data.json";
 import FavouriteCard from "./card/FavouriteCard";
 import ContinueShopping from "../cart/header/BackButton";
 import "./FavouriteList.css";
-import HeaderSection from "../../HeaderSection";
+import HeaderSection from "../../shared/HeaderSection";
 
 const majorColor: Record<string, string> = {
   SIT: "blue",

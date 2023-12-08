@@ -20,7 +20,7 @@ const Navbar = (props: Props) => {
         </Link>
       </div>
 
-      <Link to="/category">
+      <Link to="/">
         <div className="flex hover">
           <img
             src="/assets/navbars/stuket.png"

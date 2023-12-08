@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useColorContext } from "../../../context/ColorContext";
 import Category from "../../../components/pages/products/category/header/Category";
-import HeaderSection from "../../../components/HeaderSection";
+import HeaderSection from "../../../components/shared/HeaderSection";
 import SearchBar from "../../../components/pages/home/searchbar/SearchBar";
 import ProductList from "../../../components/pages/products/category/ProductList";
 import { useFacultyContext } from "../../../context/category/FacultyContex";

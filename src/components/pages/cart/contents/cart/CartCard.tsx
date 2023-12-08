@@ -48,9 +48,7 @@ const CartCard = (props: CartCardProps) => {
     });
   };
 
-  const getProduct = () => productData.find((data) => data.id === props.id);
-
-  const product = getProduct();
+  const product = productData.find((data) => data.id === props.id);
 
   if (product == null || cart == null) {
     return null;

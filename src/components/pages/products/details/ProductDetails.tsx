@@ -14,8 +14,8 @@ import "./ProductDetails.css";
 
 const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
   const { cart, setCart } = useCartContext();
-  const [isAdded, setAdded] = useState(cart.some((item) => item.id === id));
   const { favourite, setFavourite } = useFavouriteContext();
+  const [isAdded, setAdded] = useState(cart.some((item) => item.id === id));
 
   const isFavorite = favourite.some((item) => item.id === id);
 
@@ -25,10 +25,11 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
       setCart((prev) => {
         return [...prev.filter((item) => item.id != id)];
       });
+
       toast.error(`Removed ${name}`);
       return;
     }
-
+    
     setCart((prev) => {
       return [...prev, { id, quantity: 1 }];
     });
@@ -50,6 +51,7 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
       }
     });
   };
+  
 
   return (
     <div className="flex justify-around items-center font-margarine">

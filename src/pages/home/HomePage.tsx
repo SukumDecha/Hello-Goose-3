@@ -1,4 +1,4 @@
-import HeaderSection from "../../components/HeaderSection";
+import HeaderSection from "../../components/shared/HeaderSection";
 import Footer from "../../components/shared/footer/Footer";
 import Banner from "../../components/pages/home/banner/Banner";
 import CardSection from "../../components/pages/home/coupon/CardSection";
