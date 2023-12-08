@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Sidebar from "./navbar/Sidebar";
-import Login from "../pages/login/Login";
+import Login from "../pages/checkout/login/Login";
 import Navbar from "./navbar/Navbar";
 
 export default function HeaderSection() {

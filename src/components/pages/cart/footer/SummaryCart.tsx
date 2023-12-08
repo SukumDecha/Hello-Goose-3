@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useColorContext } from "../../../../context/ColorContext";
 import "./SummaryCart.css";
 
@@ -56,12 +57,15 @@ const SummaryCart = ({ totalPrice }: SummaryCartProps) => {
             <span className={`text-md`}>{`฿ ${totalPrice}`}</span>
           </div>
 
-          <div
-            className={`flex justify-between mt-2 p-2.5 rounded-2xl bg-white/20 hover-big`}
-          >
-            <span className={`text-white text-md`}>Check out</span>
-            <span className={`text-white text-md`}>{`฿ ${totalPrice}`}</span>
-          </div>
+          <Link to={"/checkout"}>
+            {" "}
+            <div
+              className={`flex justify-between mt-2 p-2.5 rounded-2xl bg-white/20 hover-big`}
+            >
+              <span className={`text-white text-md`}>Check out</span>
+              <span className={`text-white text-md`}>{`฿ ${totalPrice}`}</span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
