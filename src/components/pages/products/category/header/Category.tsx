@@ -1,13 +1,32 @@
-import Filter from "./Filter";
+import Dropdown from "../../../../shared/dropdown/Dropdown";
 
-const Category = () => {
+type Props = {
+  faculty: string
+  setFaculty: (s: string) => void
+  major: string
+  setMajor: (s: string) => void
+  category: string 
+  setCategory: (s: string) => void
+  filter: string
+  setFilter: (s: string) => void
+}
+
+const major = new Map([
+  ["ALL", ["ALL"]],
+  ["SIT",["ALL","IT", "DSI", "CS"]],
+  ["ENGINEER",["ALL"]],
+  ["FiET",["ALL","CSM", "PPT", "IT"]],
+
+])
+
+const Category = (props: Props) => {
   return (
     <div className="flex justify-center font-margarine">
       <div className="flex justify-between items-center bg-white/60 rounded-3xl w-[80%] p-4">
-        <Filter name="FACULTY: " option="SIT" />
-        <Filter name="MAJOR: " option="all" />
-        <Filter name="" option="category" />
-        <Filter name="" option="filter" />
+       <Dropdown name={"FACULTY"} selectList={["ALL","SIT", "ENGINEER", "FiET"]} selected={props.faculty} setSelect={props.setFaculty}  />
+       <Dropdown name={"MAJOR"} selectList={major.get(props.faculty)!} selected={props.major} setSelect={props.setMajor}  />
+       <Dropdown name={"CATEGORY"} selectList={["ALL","cloth", "electronic", "book"]} selected={props.category} setSelect={props.setCategory}  />
+       <Dropdown name={"FILTER"} selectList={["ID", "Highest Price", "Lowest Price"]} selected={props.filter} setSelect={props.setFilter}  />
       </div>
     </div>
   );

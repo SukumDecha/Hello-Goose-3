@@ -1,16 +1,27 @@
 import { useState } from "react";
+import { useCategoryMajorContext } from "../../../context/category/CategoryMajorContext";
+
 type DropdownProps = {
   name: string;
-  option: string;
-  catogories: string[];
+  selectList: string[];
+  selected: string
+  setSelect: (select: string) => void
 };
 
 const Dropdown = (props: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const {setCategoryMajor} = useCategoryMajorContext()
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+  const selectHandler = (s: string) => {
+    if (["SIT", "ENGINEER","FiET"].includes(s)){
+      setCategoryMajor("ALL")
+    }
+    props.setSelect(s)
+    setIsOpen(!isOpen)
+  }
 
   return (
     <div className="relative inline-block text-left">
@@ -23,7 +34,7 @@ const Dropdown = (props: DropdownProps) => {
           aria-expanded={isOpen}
           aria-haspopup="true"
         >
-          Options
+         {`${props.name}: ${props.selected}`}
           <svg
             className={`-mr-1 h-5 w-5 text-gray-400 ${
               isOpen ? "transform rotate-180" : ""
@@ -43,6 +54,7 @@ const Dropdown = (props: DropdownProps) => {
 
       {isOpen && (
         <div
+          id="dropdown-content"
           className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
@@ -51,44 +63,18 @@ const Dropdown = (props: DropdownProps) => {
         >
           <div className="py-1" role="none">
             {/* Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" */}
-            <a
-              href="#"
-              className="text-gray-700 block px-4 py-2 text-sm"
+            {
+            props.selectList.map((v,index) => (
+            <button onClick={()=>selectHandler(v)}
+              key={index}
+              className={`w-full text-start text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 ${props.selected === v ? "bg-gray-300":""}`}
               role="menuitem"
               tabIndex={-1}
               id="menu-item-0"
             >
-              Account settings
-            </a>
-            <a
-              href="#"
-              className="text-gray-700 block px-4 py-2 text-sm"
-              role="menuitem"
-              tabIndex={-1}
-              id="menu-item-1"
-            >
-              Support
-            </a>
-            <a
-              href="#"
-              className="text-gray-700 block px-4 py-2 text-sm"
-              role="menuitem"
-              tabIndex={-1}
-              id="menu-item-2"
-            >
-              License
-            </a>
-            <form method="POST" action="#" role="none">
-              <button
-                type="submit"
-                className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-                role="menuitem"
-                tabIndex={-1}
-                id="menu-item-3"
-              >
-                Sign out
-              </button>
-            </form>
+              {v}
+            </button>
+            ))}
           </div>
         </div>
       )}
