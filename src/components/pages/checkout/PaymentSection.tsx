@@ -6,6 +6,7 @@ export const PaymentSection = ({ setCurrentStep }: PaymentProps) => {
   const handleClick = () => {
     setCurrentStep((prev) => prev + 1);
   };
+  
 
   return (
     <div>
@@ -55,7 +56,7 @@ export const PaymentSection = ({ setCurrentStep }: PaymentProps) => {
           </div>
         </form>
         <button
-          className="btn ml-[190px] h-[50px] w-[100px] text-[#fff]   border  border-[#FFF] font-margarine bg-[#0547A6] rounded-3xl"
+          className="btn h-[50px] w-[100px] text-[#fff]   border  border-[#FFF] font-margarine bg-[#0547A6] rounded-3xl ml-auto"
           onClick={handleClick}
         >
           {" "}

@@ -42,7 +42,7 @@ const FavouriteCard = (props: FavouriteCardProps) => {
               <img src={props.imgPath} alt="productImg" className="px-10 " />
             </div>
             <div
-              className={`text-${props.textColor} flex justify-between items-center mx-10 my-2 text-lg font-margarine`}
+              className={`textt-${props.textColor} flex justify-between items-center mx-10 my-2 text-lg font-margarine`}
             >
               <span className="w-[60px]">{props.product}</span>
               <span className="w-[60px]">{props.price} ฿</span>

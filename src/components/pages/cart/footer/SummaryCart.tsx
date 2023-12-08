@@ -1,13 +1,23 @@
 import { Link } from "react-router-dom";
 import { useColorContext } from "../../../../context/ColorContext";
+import { useCartContext } from "../../../../context/cart/CartContext";
 import "./SummaryCart.css";
-
 interface SummaryCartProps {
   totalPrice: number;
+  selectedItem: number[];
 }
-const SummaryCart = ({ totalPrice }: SummaryCartProps) => {
+const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
   const { color } = useColorContext();
+  const { setCart } = useCartContext();
   const ringColor = `ring-2 ring-${color}-300`;
+
+  const handleClick = () => {
+    setCart((prev) => {
+      return [
+        ...prev.filter((item) => selectedItem.some((s) => s === item.id)),
+      ];
+    });
+  };
 
   return (
     <div className="flex justify-center my-8">
@@ -63,7 +73,7 @@ const SummaryCart = ({ totalPrice }: SummaryCartProps) => {
             <span className={`text-md`}>{`฿ ${totalPrice}`}</span>
           </div>
 
-          <Link to={"/checkout"}>
+          <Link to={"/checkout"} onClick={handleClick}>
             {" "}
             <div
               className={`flex justify-between mt-2 p-2.5 rounded-2xl bg-white/20 hover-big`}

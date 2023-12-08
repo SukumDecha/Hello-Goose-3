@@ -38,7 +38,7 @@ export default function CartPage() {
             selectedItem={selectedItem}
             setSelectedItem={setSelectedItem}
           />
-          <SummaryCart totalPrice={totalPrice} />
+          <SummaryCart totalPrice={totalPrice} selectedItem={selectedItem} />
         </div>
         <div
           className={`bg-cover bg-center banner-${color} h-screen mt-[-500px] w-full`}

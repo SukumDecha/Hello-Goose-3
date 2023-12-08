@@ -23,7 +23,7 @@ const ProductList = (props: ProductListProps) => {
   return (
     <div className="flex justify-center w-full">
       <div className="flex justify-center flex-col w-[93%] mb-20">
-        <span className={`text-${color} font-margarine text-5xl mb-10`}>
+        <span className={`textt-${color} font-margarine text-5xl mb-10`}>
           {props.title}
         </span>
         <div className="flex items-center h-[350px] justify-start overflow-x-scroll gap-9 no-scrollbar px-3">

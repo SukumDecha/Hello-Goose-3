@@ -1,17 +1,32 @@
 import { useState } from "react";
 import { AddressSection } from "../../components/pages/checkout/AddressSection";
 import { PaymentSection } from "../../components/pages/checkout/PaymentSection";
+import { useCartContext } from "../../context/cart/CartContext";
 import ProductSection from "../../components/pages/checkout/ProductSection";
 import Stepper from "../../components/pages/checkout/stepper/Stepper";
+import jsonData from "../../libs/data/data.json";
+import { ProductProps } from "../../components/pages/home/product/ProductList";
 
 export default function CheckoutPage() {
   const [currentStep, setCurrentStep] = useState(2);
+  const { cart } = useCartContext();
+
+  const getSelectedProduct: ProductProps[] = jsonData.filter(
+    (item: ProductProps) => cart.some((ca) => ca.id === item.id)
+  );
+
+  const totalPrice = getSelectedProduct.reduce((acc, product) => {
+    const quantity =
+      cart.find((cartItem) => cartItem.id === product.id)?.quantity ?? 0;
+    return acc + product.price * quantity;
+  }, 0);
+
   return (
-    <div className="bg-[#86AEE8] flex flex-col gap-10 h-screen items-center justify-center ">
+    <div className="bg-[#86AEE8] flex flex-col gap-10 h-fit items-center justify-center p-8 ">
       <Stepper currentStep={currentStep} />
-      <div className="bg-[#528FE9] w-[80%] h-[70%] flex flex-col justify-center  rounded-3xl p-8">
-        <ProductSection />
-        <AddressSection />
+      <div className="bg-[#528FE9] w-[80%] h-fit flex flex-col justify-center  rounded-3xl p-8">
+        <ProductSection selectedItems={getSelectedProduct} />
+        <AddressSection totalPrice={totalPrice} />
         <PaymentSection setCurrentStep={setCurrentStep} />
         {/* <Summary /> */}
       </div>

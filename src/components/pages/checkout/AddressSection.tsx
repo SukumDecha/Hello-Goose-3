@@ -1,4 +1,8 @@
-export const AddressSection = () => {
+type props = {
+  totalPrice: number;
+};
+
+export const AddressSection = (prop: props) => {
   return (
     <div>
       <div className="flex justify-between text-2xl  ">
@@ -24,7 +28,7 @@ export const AddressSection = () => {
 
           <div className="ml-[150px]">
             <span className="text-white flex  justify-between ml-[100px] font-margarine">
-              31320 B
+              {prop.totalPrice}
             </span>
             <span className="text-white flex  justify-between ml-[120px] font-margarine my-3 ">
               Free
@@ -49,7 +53,9 @@ export const AddressSection = () => {
               SUBTOTAL
             </span>
           </div>
-          <span className="text-white font-margarine ml-[240px]">31,320 B</span>
+          <span className="text-white font-margarine ml-[240px]">
+            {prop.totalPrice}
+          </span>
         </div>
       </div>
 
