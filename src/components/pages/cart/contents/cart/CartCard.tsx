@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../../../../context/cart/CartContext";
+import productData from "../../../../../libs/data/data.json";
 
 type CartCardProps = {
   id: number;
@@ -8,27 +9,35 @@ type CartCardProps = {
   product: string;
   imgPath: string;
   price: number;
-  checkbox: boolean;
-  total: number;
   quantity: number;
-  selected: boolean;
+  selectedItem: number[];
+  setSelectedItem: (n: number[]) => void;
 };
 
 const CartCard = (props: CartCardProps) => {
-  const { setCart } = useCartContext();
+  const { cart, setCart } = useCartContext();
+  const { selectedItem, setSelectedItem } = props;
+
+  const handleCheckBox = () => {
+    setSelectedItem((prev) =>
+      prev.includes(props.id)
+        ? prev.filter((id) => id !== props.id)
+        : [...prev, props.id]
+    );
+  };
 
   const updateQuantity = (increment: boolean) => {
     setCart((prev) => {
-      const productIndex = prev.findIndex((data) => data.id === props.id);
+      const cartIndex = prev.findIndex((data) => data.id === props.id);
 
-      if (productIndex !== -1) {
+      if (cartIndex !== -1) {
         const updatedCart = [...prev];
         const newQuantity = increment
-          ? updatedCart[productIndex].quantity + 1
-          : Math.max(updatedCart[productIndex].quantity - 1, 1);
+          ? updatedCart[cartIndex].quantity + 1
+          : Math.max(updatedCart[cartIndex].quantity - 1, 1);
 
-        updatedCart[productIndex] = {
-          ...updatedCart[productIndex],
+        updatedCart[cartIndex] = {
+          ...updatedCart[cartIndex],
           quantity: newQuantity,
         };
 
@@ -39,31 +48,29 @@ const CartCard = (props: CartCardProps) => {
     });
   };
 
-  const increaseQuantity = () => {
-    updateQuantity(true);
-  };
+  const getProduct = () => productData.find((data) => data.id === props.id);
 
-  const decreaseQuantity = () => {
-    updateQuantity(false);
-  };
+  const product = getProduct();
+
+  if (product == null || cart == null) {
+    return null;
+  }
+
+  const cartProduct = cart.find((data) => data.id === props.id);
+  const cartQuantity = cartProduct ? cartProduct.quantity : 0;
+  const totalPrice = cartProduct ? product.price * cartQuantity : 0;
+
+  const isChecked = selectedItem.includes(product.id);
 
   return (
     <div className="flex items-center w-[75%] h-[150px] mb-0 border-b-2 border-white pb-6 font-margarine text-white">
       <div className="w-5/12 flex flex-row items-center">
-        <div>
-          {props.checkbox ? (
-            <img
-              src="/assets/cart/checkbox.png"
-              alt="checkbox"
-              className="w-10 h-10 bg-black"
-            />
-          ) : (
-            <img
-              src="/assets/cart/checkbox.png"
-              alt="checkbox"
-              className="w-10 h-10"
-            />
-          )}
+        <div onClick={handleCheckBox}>
+          <img
+            src="/assets/cart/checkbox.png"
+            alt="checkbox"
+            className={`w-10 h-10 ${isChecked ? "bg-black" : ""}`}
+          />
         </div>
         <div className={`bg-${props.color} w-[120px] h-[120px] ml-8`}>
           <Link to={`/details/${props.id}`}>
@@ -81,15 +88,15 @@ const CartCard = (props: CartCardProps) => {
       <div className="w-7/12 flex justify-between text-2xl">
         <span className="w-1/6">{props.price} ฿</span>
         <div className="flex justify-between items-center w-20">
-          <button title="Decrease" onClick={decreaseQuantity}>
+          <button title="Decrease" onClick={() => updateQuantity(false)}>
             -
           </button>
-          <span>1</span>
-          <button title="Increase" onClick={increaseQuantity}>
+          <span>{cartQuantity}</span>
+          <button title="Increase" onClick={() => updateQuantity(true)}>
             +
           </button>
         </div>
-        <span>{props.total} ฿</span>
+        <span>{totalPrice} ฿</span>
       </div>
     </div>
   );

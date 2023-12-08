@@ -8,7 +8,30 @@ import FavouritePage from "./favourite/FavouritePage";
 import HomePage from "./home/HomePage";
 
 import { useColorContext } from "../context/ColorContext";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, createBrowserRouter } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
+]);
 
 const AppContent = () => {
   const { color } = useColorContext();

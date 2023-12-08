@@ -11,6 +11,7 @@ export default function CartList({
 }: CartPageProps) {
   const { cart } = useCartContext();
 
+  
   const cartItems = jsonData
     .filter((item: ProductProps) => cart.some((ca) => ca.id === item.id))
     .map(({ major, name, price, img, id }: ProductProps) => (
@@ -22,10 +23,9 @@ export default function CartList({
         product={name}
         price={price}
         imgPath={img}
-        checkbox={false}
-        total={0}
         quantity={0}
-        selected={selectedItem.some((item) => item === id)}
+        selectedItem={selectedItem}
+        setSelectedItem={setSelectedItem}
       />
     ));
 

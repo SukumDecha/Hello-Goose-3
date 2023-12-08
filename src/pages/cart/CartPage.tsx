@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeaderSection from "../../components/HeaderSection";
 import CartList from "../../components/pages/cart/contents/cartList/CartList";
 import SummaryCart from "../../components/pages/cart/footer/SummaryCart";
 import CartHeader from "../../components/pages/cart/header/CartHeader";
 import { useColorContext } from "../../context/ColorContext";
-
+import productData from "../../libs/data/data.json";
 import "./CartPage.css";
+import { ProductProps } from "../../components/pages/home/product/ProductList";
+import { useCartContext } from "../../context/cart/CartContext";
 
 export interface CartPageProps {
   selectedItem: number[];
@@ -14,7 +16,25 @@ export interface CartPageProps {
 
 export default function CartPage() {
   const { color } = useColorContext();
+  const { cart } = useCartContext();
   const [selectedItem, setSelectedItem] = useState<number[]>([]);
+
+  useEffect(() => {
+    // Log selected products whenever selectedItem changes
+    console.log("Selected Products:");
+    console.log(getSelectedProduct());
+  }, [selectedItem]);
+
+  const getSelectedProduct = () =>
+    productData.filter((item: ProductProps) => selectedItem.includes(item.id));
+
+  const selectedProducts = getSelectedProduct();
+
+  const totalPrice = selectedProducts.reduce((acc, product) => {
+    const quantity =
+      cart.find((cartItem) => cartItem.id === product.id)?.quantity ?? 0;
+    return acc + product.price * quantity;
+  }, 0);
 
   return (
     <div className={`bg-${color}`}>
@@ -26,7 +46,7 @@ export default function CartPage() {
             selectedItem={selectedItem}
             setSelectedItem={setSelectedItem}
           />
-          <SummaryCart totalPrice={50} />
+          <SummaryCart totalPrice={totalPrice} />
         </div>
         <div
           className={`bg-cover bg-center banner-${color} h-screen mt-[-500px] w-full`}
