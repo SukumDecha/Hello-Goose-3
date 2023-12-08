@@ -3,6 +3,9 @@ import Engineering from "./majorList/Engineering";
 import FiET from "./majorList/FiET";
 import { useRef, useState } from "react";
 import { useColorContext } from "../../../context/ColorContext";
+import { useFacultyContext } from "../../../context/category/FacultyContex";
+import { useCategoryMajorContext } from "../../../context/category/CategoryMajorContext";
+import { useCategoryContext } from "../../../context/category/CategoryContext";
 
 type Props = {
   isOpen: boolean;
@@ -29,6 +32,10 @@ const Sidebar = (props: Props) => {
   const [isEngOpen, setEngOpen] = useState(false);
   const [isFiETOpen, setFiETItOpen] = useState(false);
   const { color } = useColorContext();
+  const { setFaculty } = useFacultyContext();
+  const { setCategoryMajor } = useCategoryMajorContext();
+  const { setCategory } = useCategoryContext();
+
   const ref = useRef<HTMLDivElement>(null);
 
   const isClickOutSide = (e: any) => {
@@ -76,7 +83,7 @@ const Sidebar = (props: Props) => {
             </div>
           </div>
           <div className={!isItOpen ? "hidden" : "block"}>
-            <IT></IT>
+            <IT setFaculty={setFaculty} setMajor={setCategoryMajor} setSidebarOpen={props.setOpen} setCategory={setCategory}></IT>
           </div>
           <div className="flex flex-row justify-between mt-8">
             <span className="font-margarine underline ml-8 text-2xl">
@@ -91,7 +98,7 @@ const Sidebar = (props: Props) => {
             </div>
           </div>
           <div className={!isEngOpen ? "hidden" : "block"}>
-            <Engineering></Engineering>
+            <Engineering setFaculty={setFaculty} setMajor={setCategoryMajor} setSidebarOpen={props.setOpen} setCategory={setCategory}></Engineering>
           </div>
           <div className="flex flex-row justify-between mt-8">
             <span className="font-margarine underline ml-8 text-2xl">FiET</span>
@@ -106,7 +113,7 @@ const Sidebar = (props: Props) => {
             </div>
           </div>
           <div className={!isFiETOpen ? "hidden" : "block"}>
-            <FiET></FiET>
+            <FiET setFaculty={setFaculty} setMajor={setCategoryMajor} setSidebarOpen={props.setOpen} setCategory={setCategory}></FiET>
           </div>
           <div className="h-8"></div>
         </div>
