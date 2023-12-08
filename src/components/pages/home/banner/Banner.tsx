@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useColorContext } from "../../../../context/ColorContext";
 import { useMajorContext } from "../../../../context/MajorContext";
+import { Link } from "react-router-dom";
 import SearchBar, { SearchProps } from "../searchbar/SearchBar";
 import VisitButton from "../visitbutton/VisitButton";
+
 import "./Banner.css";
 
 const majorTitle: Record<string, string> = {
@@ -18,7 +20,7 @@ const Banner = ({ search, setSearch }: SearchProps) => {
 
   const handleNext = () => {
     setIsChanging(true);
-    
+
     setTimeout(() => {
       setIsChanging(false);
     }, 500);
@@ -79,10 +81,12 @@ const Banner = ({ search, setSearch }: SearchProps) => {
           <div className={`text-7xl text-white ${isChanging ? "shake" : ""}`}>
             {majorTitle[major]}
           </div>
-          <VisitButton
-            color={color}
-            className={`hover-small ${isChanging ? "shake" : ""}`}
-          ></VisitButton>
+          <Link to={"/category"}>
+            <VisitButton
+              color={color}
+              className={`hover-small ${isChanging ? "shake" : ""}`}
+            />
+          </Link>
         </div>
         <div>
           <img
