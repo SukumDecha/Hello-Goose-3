@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../../context/cart/CartContext";
 import "./Navbar.css";
 type Props = {
   setOpen: (b: boolean) => void;
@@ -6,6 +7,8 @@ type Props = {
 };
 
 const Navbar = (props: Props) => {
+  const { cart } = useCartContext();
+
   return (
     <nav className={`flex w-full items-center justify-between p-4 `}>
       <div className="left flex justify-between items-center gap-6">
@@ -17,7 +20,7 @@ const Navbar = (props: Props) => {
         </Link>
       </div>
 
-      <Link to="/">
+      <Link to="/category">
         <div className="flex hover">
           <img
             src="/assets/navbars/stuket.png"
@@ -30,7 +33,12 @@ const Navbar = (props: Props) => {
 
       <div className="right flex justify-between items-center gap-6">
         <Link to="/cart" className="hover">
-          <img src="/assets/navbars/cart.png" alt="Cart" width={60} />
+          <div className="relative">
+            <span className="absolute text-xs right-0 pl-2 pr-2 p-1 bg-white rounded-xl">
+              {cart.length}
+            </span>
+            <img src="/assets/navbars/cart.png" alt="Cart" width={60} />
+          </div>
         </Link>
 
         <button onClick={() => props.setLogin(true)} className="hover">

@@ -11,9 +11,11 @@ const Login = (props: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const { color } = useColorContext();
 
+  const handleClick = () => {
+    props.setOpen(false);
+  };
   const isClickOutSide = (e: any) => {
     if (e.target.id === "login-backdrop") {
-      console.log(e.target.id);
       props.setOpen(false);
     }
   };
@@ -93,6 +95,7 @@ const Login = (props: Props) => {
           </div>
 
           <div
+            onClick={handleClick}
             className={`bg-white h-[25px] w-[200px] text-center rounded-lg flex items-center justify-center font-margarine text-${color}  border-${color}`}
           >
             <button>SIGN IN </button>

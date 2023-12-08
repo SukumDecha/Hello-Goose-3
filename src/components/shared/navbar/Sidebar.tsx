@@ -33,7 +33,6 @@ const Sidebar = (props: Props) => {
 
   const isClickOutSide = (e: any) => {
     if (e.target.id === "sidebar-backdrop") {
-      console.log(e.target.id);
       props.setOpen(false);
     }
   };
@@ -52,64 +51,66 @@ const Sidebar = (props: Props) => {
         className={` h-full w-full md:w-96 bg-${color} m-0 overflow-scroll no-scrollbar`}
         id="sidebar"
       >
-      <div
-        className={` h-full w-full md:w-96 bg-slate-100/40 m-0 overflow-scroll no-scrollbar`}
-        id="sidebar"
-      >
-        <div className="flex flex-row justify-start m-8 items-center">
-          <button onClick={() => props.setOpen(false)}>
-            <img
-              className="w-10 h-10"
-              src="/assets/navbars/x-thin.svg"
-              alt="x_icon"
-            />
-          </button>
-          <span className="font-margarine ml-5 text-3xl">MENU</span>
-        </div>
-        <div className="flex flex-row justify-between">
-          <span className="font-margarine underline ml-8 text-2xl">SIT</span>
-          <div className="flex mr-8">
-            {!isItOpen ? (
-              <button onClick={() => setItOpen(true)}>{plusIcon}</button>
-            ) : (
-              <button onClick={() => setItOpen(false)}>{minusIcon}</button>
-            )}
+        <div
+          className={` h-full w-full md:w-96 bg-slate-100/40 m-0 overflow-scroll no-scrollbar`}
+          id="sidebar"
+        >
+          <div className="flex flex-row justify-start m-8 items-center">
+            <button onClick={() => props.setOpen(false)}>
+              <img
+                className="w-10 h-10"
+                src="/assets/navbars/x-thin.svg"
+                alt="x_icon"
+              />
+            </button>
+            <span className="font-margarine ml-5 text-3xl">MENU</span>
           </div>
-        </div>
-        <div className={!isItOpen ? "hidden" : "block"}>
-          <IT></IT>
-        </div>
-        <div className="flex flex-row justify-between mt-8">
-          <span className="font-margarine underline ml-8 text-2xl">
-            Engineering
-          </span>
-          <div className="flex mr-8">
-            {!isEngOpen ? (
-              <button onClick={() => setEngOpen(true)}>{plusIcon}</button>
-            ) : (
-              <button onClick={() => setEngOpen(false)}>{minusIcon}</button>
-            )}
+          <div className="flex flex-row justify-between">
+            <span className="font-margarine underline ml-8 text-2xl">SIT</span>
+            <div className="flex mr-8">
+              {!isItOpen ? (
+                <button onClick={() => setItOpen(true)}>{plusIcon}</button>
+              ) : (
+                <button onClick={() => setItOpen(false)}>{minusIcon}</button>
+              )}
+            </div>
           </div>
-        </div>
-        <div className={!isEngOpen ? "hidden" : "block"}>
-          <Engineering></Engineering>
-        </div>
-        <div className="flex flex-row justify-between mt-8">
-          <span className="font-margarine underline ml-8 text-2xl">FiET</span>
-          <div className="flex mr-8">
-            {!isFiETOpen ? (
-              <button onClick={() => setFiETItOpen(true)}>{plusIcon}</button>
-            ) : (
-              <button onClick={() => setFiETItOpen(false)}>{minusIcon}</button>
-            )}
+          <div className={!isItOpen ? "hidden" : "block"}>
+            <IT></IT>
           </div>
+          <div className="flex flex-row justify-between mt-8">
+            <span className="font-margarine underline ml-8 text-2xl">
+              Engineering
+            </span>
+            <div className="flex mr-8">
+              {!isEngOpen ? (
+                <button onClick={() => setEngOpen(true)}>{plusIcon}</button>
+              ) : (
+                <button onClick={() => setEngOpen(false)}>{minusIcon}</button>
+              )}
+            </div>
+          </div>
+          <div className={!isEngOpen ? "hidden" : "block"}>
+            <Engineering></Engineering>
+          </div>
+          <div className="flex flex-row justify-between mt-8">
+            <span className="font-margarine underline ml-8 text-2xl">FiET</span>
+            <div className="flex mr-8">
+              {!isFiETOpen ? (
+                <button onClick={() => setFiETItOpen(true)}>{plusIcon}</button>
+              ) : (
+                <button onClick={() => setFiETItOpen(false)}>
+                  {minusIcon}
+                </button>
+              )}
+            </div>
+          </div>
+          <div className={!isFiETOpen ? "hidden" : "block"}>
+            <FiET></FiET>
+          </div>
+          <div className="h-8"></div>
         </div>
-        <div className={!isFiETOpen ? "hidden" : "block"}>
-          <FiET></FiET>
-        </div>
-        <div className="h-8"></div>
       </div>
-    </div>
     </div>
   );
 };

@@ -1,24 +1,39 @@
 import ColorButton from "./button/ColorButton";
 import { ProductProps } from "../../home/product/ProductList";
 import { useCartContext } from "../../../../context/cart/CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
 import {
   FavouriteProps,
   useFavouriteContext,
 } from "../../../../context/favourite/FavouriteContext";
 
+import "react-toastify/dist/ReactToastify.css";
+
 import "./ProductDetails.css";
 
 const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
   const { cart, setCart } = useCartContext();
+  const [isAdded, setAdded] = useState(cart.some((item) => item.id === id));
   const { favourite, setFavourite } = useFavouriteContext();
 
   const isFavorite = favourite.some((item) => item.id === id);
 
   const handleAddToCart = () => {
+    setAdded(!isAdded);
+    if (isAdded) {
+      setCart((prev) => {
+        return [...prev.filter((item) => item.id != id)];
+      });
+      toast.error(`Removed ${name}`);
+      return;
+    }
+
     setCart((prev) => {
       return [...prev, { id, quantity: 1 }];
     });
 
+    toast.success(`Added ${name}`);
     console.log(cart);
   };
 
@@ -27,23 +42,30 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
       const isAlreadyFavourite = prev.some((item) => item.id === id);
 
       if (isAlreadyFavourite) {
+        toast.error(`Removed from favourite`);
         return prev.filter((item) => item.id !== id);
       } else {
+        toast.success(`Added to favourite`);
         return [...prev, { id }];
       }
     });
-
-    // setTimeout(() => {
-    //   /* Should route into favourite page */
-    //   navigate("/", { replace: true });
-    // }, 100);
-
-    console.log(favourite);
   };
 
   return (
-    <div className="flex justify-around items-center font-margarine gap-40">
-      <div className="flex flex-col items-center justify-center gap-4">
+    <div className="flex justify-around items-center font-margarine">
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <div className="flex flex-col items-center justify-center gap-4 mr-40">
         <img src={img} alt="bag" className="h-[500px]" />
         <div className="flex flex-row mb-10 gap-5">
           <img src={img} alt={img} className="h-[120px]  " />
@@ -83,11 +105,13 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
         <div className="flex flex-row items-center gap-20">
           <div
             onClick={handleAddToCart}
-            className={`flex justify-around items-center btn-${major} w-52 h-16 rounded-2xl p-4 hover-big
+            className={`flex justify-around items-center btn-${major} w-64 h-16 rounded-2xl p-4 hover-big
             `}
           >
             <img src="/assets/products/Cart.png" alt="cart" className="w-9" />
-            <span className="text-xl">Add to cart</span>
+            <span className="text-xl">
+              {!isAdded ? "Add to cart" : "Remove from cart"}
+            </span>
           </div>
 
           <div className="hover-btn" onClick={handleToggleFavourite}>

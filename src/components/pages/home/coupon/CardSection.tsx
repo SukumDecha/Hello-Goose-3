@@ -1,56 +1,26 @@
 import { useColorContext } from "../../../../context/ColorContext";
 import Card from "./Card";
+import couponData from "../../../../libs/data/coupon.json";
 import "./CardSection.css";
 
 const CardSection = () => {
   const { color } = useColorContext();
 
+  const couponList = couponData.map((coupon, index) => (
+    <Card
+      key={index}
+      title={`sale ${coupon.discount}`}
+      subTitle={`${coupon.code}`}
+      description={`เมื่อช้อปครบ ${coupon.require} สำหรับลูกค้าใหม่ stuket`}
+    />
+  ));
   return (
     <div
-      className={`flex flex-col justify-center p-8 pt-24 bg-linear-${color}-c`}
+      className={`flex flex-col justify-center p-8 pt-24 pb-24 bg-linear-${color}-c`}
     >
       <div className="font-margarine text-5xl text-white ml-4 mb-4">Coupon</div>
       <div className="w-full inline-flex overflow-scroll gap-5 no-scrollbar">
-        <Card
-          title="sale 10%"
-          subTitle="RNOVNEW1"
-          description="เมื่อช้อปครบ ฿1,500 สำหรับลูกค้าใหม่ stuket"
-        ></Card>
-        <Card
-          title="sale 25%"
-          subTitle="RNOVNEW2"
-          description="เมื่อช้อปครบ ฿1,100 สำหรับลูกค้าใหม่ stuket"
-        ></Card>
-        <Card
-          title="sale 15%"
-          subTitle="RNOVNEW3"
-          description="เมื่อช้อปครบ ฿300 สำหรับลูกค้าใหม่ stuket"
-        ></Card>
-        <Card
-          title="sale 37%"
-          subTitle="RNOVNEW4"
-          description="เมื่อช้อปครบ ฿2,000 สำหรับลูกค้าใหม่ stuket"
-        ></Card>
-        <Card
-          title="sale 20%"
-          subTitle="RNOVNEW5"
-          description="เมื่อช้อปครบ ฿900 สำหรับลูกค้าใหม่ stuket"
-        ></Card>
-        <Card
-          title="sale 17%"
-          subTitle="RNOVNEW6"
-          description="เมื่อช้อปครบ ฿1,500 สำหรับลูกค้าใหม่ stuket"
-        ></Card>
-        <Card
-          title="sale 30%"
-          subTitle="RNOVNEW7"
-          description="เมื่อช้อปครบ ฿4,000 สำหรับลูกค้าใหม่ stuket"
-        ></Card>
-        <Card
-          title="sale 23%"
-          subTitle="RNOVNEW8"
-          description="เมื่อช้อปครบ ฿2,000 สำหรับลูกค้าใหม่ stuket"
-        ></Card>
+        {couponList}
       </div>
     </div>
   );

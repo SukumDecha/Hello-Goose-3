@@ -1,0 +1,23 @@
+.step-item {
+    @apply relative flex flex-col justify-center items-center w-36 mx-20;
+  }
+  .step-item:not(:first-child):before {
+    @apply content-[''] bg-slate-200 absolute w-[300px] h-[2px] right-2/4 top-1/3 -translate-y-2/4;
+  }
+  .step {
+    @apply w-[69px] h-[69px] flex items-center justify-center z-10 relative bg-[#73A1E4] rounded-full font-semibold text-[#0547A6] text-xl border-2 border-white;
+  }
+  .active .step {
+    @apply bg-[white];
+  }
+  .complete .step {
+    @apply bg-blue-200;
+  }
+  .complete p {
+    @apply text-white;
+  }
+  .complete:not(:first-child):before,
+  .active:not(:first-child):before {
+    @apply bg-slate-700;
+  }
+  
