@@ -64,11 +64,7 @@ const CartCard = (props: CartCardProps) => {
     <div className="flex items-center w-[75%] h-[150px] mb-0 border-b-2 border-white pb-6 font-margarine text-white">
       <div className="w-5/12 flex flex-row items-center">
         <div onClick={handleCheckBox}>
-          <div
-            className={`w-7 h-7 mx-1 rounded-sm bg-white ${
-              isChecked ? "hidden" : "block"
-            }`}
-          ></div>
+        <div className={`w-7 h-7 mx-1 rounded-sm bg-white ${isChecked ? "hidden" : "block"}`}></div>
           <img
             src="/assets/cart/checkbox.png"
             alt="checkbox"
