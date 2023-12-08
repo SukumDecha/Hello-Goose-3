@@ -10,6 +10,7 @@ export default function CartList({
   setSelectedItem,
 }: CartPageProps) {
   const { cart, setCart } = useCartContext();
+  
   const removeItemHandler = () => {
     setCart((items) => {
       for (let id of selectedItem) {

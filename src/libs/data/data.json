@@ -96,5 +96,155 @@
     "submajor": "IDT",
     "type": "cloth",
     "display": 1
+  },
+  {
+    "id": 10,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "SIT",
+    "submajor": "IT",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 11,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "SIT",
+    "submajor": "CS",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 12,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "SIT",
+    "submajor": "DSI",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 13,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "ENGINEER",
+    "submajor": "",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 14,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "FiET",
+    "submajor": "PPT",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 15,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "FiET",
+    "submajor": "IDT",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 16,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "FiET",
+    "submajor": "CSM",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 17,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "SIT",
+    "submajor": "IT",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 18,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "SIT",
+    "submajor": "CS",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 19,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "SIT",
+    "submajor": "DSI",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 20,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "ENGINEER",
+    "submajor": "",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 21,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "FiET",
+    "submajor": "PPT",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 22,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "FiET",
+    "submajor": "IDT",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 23,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "FiET",
+    "submajor": "CSM",
+    "type": "cloth",
+    "display": 0
+  },
+  {
+    "id": 24,
+    "name": "Nightmare Shirt",
+    "price": 100,
+    "img": "/assets/products/nightmare-shirt.png",
+    "major": "SIT",
+    "submajor": "IT",
+    "type": "cloth",
+    "display": 0
   }
 ]

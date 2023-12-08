@@ -18,6 +18,7 @@ const Banner = ({ search, setSearch }: SearchProps) => {
 
   const handleNext = () => {
     setIsChanging(true);
+    
     setTimeout(() => {
       setIsChanging(false);
     }, 500);

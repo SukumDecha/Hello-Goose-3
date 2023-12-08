@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Sidebar from "./shared/navbar/Sidebar";
-import Login from "./pages/login/Login";
-import Navbar from "./shared/navbar/Navbar";
+import Sidebar from "./navbar/Sidebar";
+import Login from "../pages/login/Login";
+import Navbar from "./navbar/Navbar";
 
 export default function HeaderSection() {
   const [isSidebarOpen, setSidebar] = useState(false);

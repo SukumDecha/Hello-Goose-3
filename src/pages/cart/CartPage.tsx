@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import HeaderSection from "../../components/HeaderSection";
+import { useState } from "react";
+import HeaderSection from "../../components/shared/HeaderSection";
 import CartList from "../../components/pages/cart/contents/cartList/CartList";
 import SummaryCart from "../../components/pages/cart/footer/SummaryCart";
 import CartHeader from "../../components/pages/cart/header/CartHeader";
@@ -19,18 +19,10 @@ export default function CartPage() {
   const { cart } = useCartContext();
   const [selectedItem, setSelectedItem] = useState<number[]>([]);
 
-  useEffect(() => {
-    // Log selected products whenever selectedItem changes
-    console.log("Selected Products:");
-    console.log(getSelectedProduct());
-  }, [selectedItem]);
-
   const getSelectedProduct = () =>
     productData.filter((item: ProductProps) => selectedItem.includes(item.id));
 
-  const selectedProducts = getSelectedProduct();
-
-  const totalPrice = selectedProducts.reduce((acc, product) => {
+  const totalPrice = getSelectedProduct().reduce((acc, product) => {
     const quantity =
       cart.find((cartItem) => cartItem.id === product.id)?.quantity ?? 0;
     return acc + product.price * quantity;
