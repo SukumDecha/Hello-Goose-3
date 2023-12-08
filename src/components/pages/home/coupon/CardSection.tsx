@@ -7,7 +7,7 @@ const CardSection = () => {
 
   return (
     <div
-      className={`flex flex-col justify-center p-8 pt-24 bg-linear-${color}-c`}
+      className={`flex flex-col justify-center p-8 pt-24 pb-24 bg-linear-${color}-c`}
     >
       <div className="font-margarine text-5xl text-white ml-4 mb-4">Coupon</div>
       <div className="w-full inline-flex overflow-scroll gap-5 no-scrollbar">
