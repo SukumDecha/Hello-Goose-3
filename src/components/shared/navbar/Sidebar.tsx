@@ -33,7 +33,6 @@ const Sidebar = (props: Props) => {
 
   const isClickOutSide = (e: any) => {
     if (e.target.id === "sidebar-backdrop") {
-      console.log(e.target.id);
       props.setOpen(false);
     }
   };

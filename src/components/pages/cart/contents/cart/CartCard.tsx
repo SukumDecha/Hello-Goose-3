@@ -12,11 +12,11 @@ type CartCardProps = {
   total: number;
   quantity: number;
   selected: boolean;
+  setSelect: (id: number) => void
 };
 
 const CartCard = (props: CartCardProps) => {
   const { setCart } = useCartContext();
-
   const updateQuantity = (increment: boolean) => {
     setCart((prev) => {
       const productIndex = prev.findIndex((data) => data.id === props.id);
@@ -50,21 +50,7 @@ const CartCard = (props: CartCardProps) => {
   return (
     <div className="flex items-center w-[75%] h-[150px] mb-0 border-b-2 border-white pb-6 font-margarine text-white">
       <div className="w-5/12 flex flex-row items-center">
-        <div>
-          {props.checkbox ? (
-            <img
-              src="/assets/cart/checkbox.png"
-              alt="checkbox"
-              className="w-10 h-10 bg-black"
-            />
-          ) : (
-            <img
-              src="/assets/cart/checkbox.png"
-              alt="checkbox"
-              className="w-10 h-10"
-            />
-          )}
-        </div>
+        <div ><input type="checkbox" className="w-12 h-12 rounded border-none" checked={props.selected} onChange={()=>props.setSelect(props.id)}></input></div>
         <div className={`bg-${props.color} w-[120px] h-[120px] ml-8`}>
           <Link to={`/details/${props.id}`}>
             <div className="flex justify-center items-center bg-gradient-to-t from-slate-50/60 to-slate-500/5 w-[120px] h-[120px]">
@@ -84,7 +70,7 @@ const CartCard = (props: CartCardProps) => {
           <button title="Decrease" onClick={decreaseQuantity}>
             -
           </button>
-          <span>1</span>
+          <span>{props.quantity}</span>
           <button title="Increase" onClick={increaseQuantity}>
             +
           </button>

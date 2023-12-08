@@ -1,24 +1,36 @@
 import ColorButton from "./button/ColorButton";
 import { ProductProps } from "../../home/product/ProductList";
 import { useCartContext } from "../../../../context/cart/CartContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   FavouriteProps,
   useFavouriteContext,
 } from "../../../../context/favourite/FavouriteContext";
 
 import "./ProductDetails.css";
+import { useState } from "react";
 
 const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
   const { cart, setCart } = useCartContext();
+  const [ isAdded, setAdded ] = useState(cart.some(item => item.id === id))
   const { favourite, setFavourite } = useFavouriteContext();
-
   const isFavorite = favourite.some((item) => item.id === id);
 
   const handleAddToCart = () => {
+    setAdded(!isAdded)
+    if (isAdded) {
+      setCart((prev) => {
+        return [...prev.filter(item => item.id != id)];
+      });
+      toast.error(`removed ${name}`);
+      console.log(cart);
+      return
+    }
     setCart((prev) => {
       return [...prev, { id, quantity: 1 }];
     });
-
+    toast.success(`added ${name}`);
     console.log(cart);
   };
 
@@ -43,6 +55,16 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
 
   return (
     <div className="flex justify-around items-center font-margarine gap-40">
+      <ToastContainer position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light" />
       <div className="flex flex-col items-center justify-center gap-4">
         <img src={img} alt="bag" className="h-[500px]" />
         <div className="flex flex-row mb-10 gap-5">
@@ -81,13 +103,14 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
           </span>
         </div>
         <div className="flex flex-row items-center gap-20">
+
           <div
             onClick={handleAddToCart}
-            className={`flex justify-around items-center btn-${major} w-52 h-16 rounded-2xl p-4 hover-big
+            className={`flex justify-around items-center btn-${major} w-64 h-16 rounded-2xl p-4 hover-big
             `}
           >
             <img src="/assets/products/Cart.png" alt="cart" className="w-9" />
-            <span className="text-xl">Add to cart</span>
+            <span className="text-xl">{!isAdded ? "Add to cart" : "remove from cart"}</span>
           </div>
 
           <div className="hover-btn" onClick={handleToggleFavourite}>

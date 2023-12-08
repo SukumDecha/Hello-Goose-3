@@ -13,7 +13,6 @@ const Login = (props: Props) => {
 
   const isClickOutSide = (e: any) => {
     if (e.target.id === "login-backdrop") {
-      console.log(e.target.id);
       props.setOpen(false);
     }
   };
