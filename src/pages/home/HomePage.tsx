@@ -17,27 +17,44 @@ const Home = () => {
         <Banner search={search} setSearch={setSearch} />
       </div>
 
-      <div className={`bg-transition bg-linear-${color}`}>
-        <CardSection />
-        <ProductList
-          search={search}
-          setSearch={setSearch}
-          title="New arrival"
-          id={2}
-        />
-        <ProductList
-          search={search}
-          setSearch={setSearch}
-          title="The most recomended"
-          id={1}
-        />
-        <ProductList
-          search={search}
-          setSearch={setSearch}
-          title="Products"
-          id={0}
-        />
-      </div>
+      {!search ? (
+        <div className={`bg-transition bg-linear-${color}`}>
+          <CardSection />
+          <ProductList
+            search={search}
+            setSearch={setSearch}
+            title="New arrival"
+            id={2}
+          />
+          <ProductList
+            search={search}
+            setSearch={setSearch}
+            title="The most recomended"
+            id={1}
+          />
+          <ProductList
+            search={search}
+            setSearch={setSearch}
+            title="Products"
+            id={0}
+          />
+        </div>
+      ) : (
+        <div className={`bg-cover bg-center banner-${color}`}>
+          <ProductList
+            search={search}
+            setSearch={setSearch}
+            title="New arrival"
+            id={2}
+          />
+          <ProductList
+            search={search}
+            setSearch={setSearch}
+            title="Products"
+            id={0}
+          />
+        </div>
+      )}
       <Footer />
     </>
   );

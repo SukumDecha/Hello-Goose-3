@@ -19,6 +19,15 @@ export interface ProductListProps extends SearchProps {
 
 const ProductList = (props: ProductListProps) => {
   const { color } = useColorContext();
+  const productList = productData
+    .filter((data) =>
+      data.name.toLowerCase().includes(props.search.toLowerCase())
+    )
+    .filter((data) => data.display === props.id);
+
+  if (productList.length <= 0) {
+    return <div></div>;
+  }
 
   return (
     <div className="flex justify-center w-full">
@@ -27,27 +36,19 @@ const ProductList = (props: ProductListProps) => {
           {props.title}
         </span>
         <div className="flex items-center h-[350px] justify-start overflow-x-scroll gap-9 no-scrollbar px-3">
-          {productData
-            .filter((data) =>
-              data.name.toLowerCase().includes(props.search.toLowerCase())
+          {productList.map(
+            ({ major, name, price, img, id }: ProductProps, index: number) => (
+              <FavouriteCard
+                key={index}
+                id={id}
+                color={majorColor[major]}
+                textColor={majorColor[major]}
+                product={name}
+                price={price}
+                imgPath={img}
+              />
             )
-            .filter((data) => data.display === props.id)
-            .map(
-              (
-                { major, name, price, img, id }: ProductProps,
-                index: number
-              ) => (
-                <FavouriteCard
-                  key={index}
-                  id={id}
-                  color={majorColor[major]}
-                  textColor={majorColor[major]}
-                  product={name}
-                  price={price}
-                  imgPath={img}
-                />
-              )
-            )}
+          )}
         </div>
       </div>
     </div>

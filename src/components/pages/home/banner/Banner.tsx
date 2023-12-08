@@ -57,46 +57,51 @@ const Banner = ({ search, setSearch }: SearchProps) => {
 
   return (
     <div
-      className={`bg-cover bg-center h-screen banner-${color} flex flex-col bg-bottom gap-0 items-center bg-transition`}
+      className={`bg-cover bg-center ${
+        !search ? "h-screen" : ""
+      } banner-${color} flex flex-col bg-bottom gap-0 items-center bg-transition`}
     >
       <div className="search-bar z-2">
         <SearchBar search={search} setSearch={setSearch} />
       </div>
-
-      <div
-        className={`flex bg-cover bg-top w-[85%] h-full items-center mt-[-10%] goose-${color} bg-transition z-1`}
-      >
-        <div>
-          <img
-            src="/assets/App/banners/leftArrow.png"
-            alt="leftArrow"
-            className="w-12 hover:cursor-pointer"
-            onClick={handleBack}
-          />
-        </div>
-
-        <div className="font-mansalva w-3/5 px-20 flex flex-col">
-          {/* Wrap the content with CSSTransition */}
-
-          <div className={`text-7xl text-white ${isChanging ? "shake" : ""}`}>
-            {majorTitle[major]}
-          </div>
-          <Link to={"/category"}>
-            <VisitButton
-              color={color}
-              className={`hover-small ${isChanging ? "shake" : ""}`}
+      {!search ? (
+        <div
+          className={`flex bg-cover bg-top w-[85%] h-full items-center mt-[-10%] goose-${color} bg-transition z-1`}
+        >
+          <div>
+            <img
+              src="/assets/App/banners/leftArrow.png"
+              alt="leftArrow"
+              className="w-12 hover:cursor-pointer"
+              onClick={handleBack}
             />
-          </Link>
+          </div>
+
+          <div className="font-mansalva w-3/5 px-20 flex flex-col">
+            {/* Wrap the content with CSSTransition */}
+
+            <div className={`text-7xl text-white ${isChanging ? "shake" : ""}`}>
+              {majorTitle[major]}
+            </div>
+            <Link to={"/category"}>
+              <VisitButton
+                color={color}
+                className={`hover-small ${isChanging ? "shake" : ""}`}
+              />
+            </Link>
+          </div>
+          <div>
+            <img
+              src="/assets/App/banners/rightArrow.png"
+              alt="rightArrow"
+              className="w-12 ml-96 hover:cursor-pointer"
+              onClick={handleNext}
+            />
+          </div>
         </div>
-        <div>
-          <img
-            src="/assets/App/banners/rightArrow.png"
-            alt="rightArrow"
-            className="w-12 ml-96 hover:cursor-pointer"
-            onClick={handleNext}
-          />
-        </div>
-      </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
