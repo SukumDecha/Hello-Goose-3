@@ -11,6 +11,7 @@ import {
 import "react-toastify/dist/ReactToastify.css";
 
 import "./ProductDetails.css";
+import BackButton from "../../cart/header/BackButton";
 
 const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
   const { cart, setCart } = useCartContext();
@@ -29,7 +30,7 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
       toast.error(`Removed ${name}`);
       return;
     }
-    
+
     setCart((prev) => {
       return [...prev, { id, quantity: 1 }];
     });
@@ -51,7 +52,6 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
       }
     });
   };
-  
 
   return (
     <div className="flex justify-around items-center font-margarine">
@@ -76,6 +76,7 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
         </div>
       </div>
       <div className="flex flex-col w-2/4 text-white gap-8 pb-24">
+        <BackButton />
         <span className="text-5xl tracking-wide">{name}</span>
         <div className="flex flex-row gap-10 mx-2">
           <ColorButton color={"1"}></ColorButton>

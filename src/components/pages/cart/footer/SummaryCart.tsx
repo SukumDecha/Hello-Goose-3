@@ -17,27 +17,33 @@ const SummaryCart = ({ totalPrice }: SummaryCartProps) => {
         {/* Left Div */}
         <div className="left-div flex flex-col gap-4 w-[50%] text-white">
           <span className={`text-3xl`}>Choose shiping mode</span>
-          <div className="flex items-center gap-4">
-            <input
-              id="c1"
-              type="checkbox"
-              className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 ${ringColor} checked:bg-blue-500`}
-            />
-            <span className={`text-md`}>Store pickup (in 20 mins)</span>
+          <form>
+            <div className="flex items-center gap-4">
+              <input
+                id="c1"
+                name="c1"
+                type="radio"
+                className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 ${ringColor} checked:bg-white`}
+              />
+              <span className={`text-md`}>Store pickup (in 20 mins)</span>
 
-            <span className={`text-md`}>FREE</span>
-          </div>
+              <span className={`text-md`}>FREE</span>
+            </div>
 
-          <div className="flex items-center gap-4">
-            <input
-              id="c1"
-              type="checkbox"
-              className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 ${ringColor} checked:bg-blue-500`}
-            />
-            <span className={`text-md`}>Delivery of home (Under 2-4 day)</span>
+            <div className="flex items-center gap-4">
+              <input
+                id="c2"
+                name="c1"
+                type="radio"
+                className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 ${ringColor} checked:bg-white`}
+              />
+              <span className={`text-md`}>
+                Delivery of home (Under 2-4 day)
+              </span>
 
-            <span className={`text-md`}>50 ฿</span>
-          </div>
+              <span className={`text-md`}>50 ฿</span>
+            </div>
+          </form>
         </div>
 
         {/* Right Div */}

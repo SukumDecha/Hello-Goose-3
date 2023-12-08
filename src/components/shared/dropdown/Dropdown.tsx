@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useCategoryMajorContext } from "../../../context/category/CategoryMajorContext";
 
 type DropdownProps = {
   name: string;
@@ -11,20 +10,12 @@ type DropdownProps = {
 
 const Dropdown = (props: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { setCategoryMajor } = useCategoryMajorContext();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const selectHandler = (s: string) => {
-    if (
-      ["SIT", "ENGINEER", "FiET", "ALL"].includes(s) &&
-      props.type === "faculty"
-    ) {
-      setCategoryMajor("ALL");
-    }
-
     props.setSelect(s);
     setIsOpen(!isOpen);
   };
