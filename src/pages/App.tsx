@@ -8,28 +8,32 @@ import FavouritePage from "./favourite/FavouritePage";
 import HomePage from "./home/HomePage";
 
 import { useColorContext } from "../context/ColorContext";
-import { Route, Routes, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <HomePage />,
   },
   {
-    path: "/",
-    element: <div>Hello world!</div>,
+    path: "/category",
+    element: <ProductCategory />,
   },
   {
-    path: "/",
-    element: <div>Hello world!</div>,
+    path: "/checkout",
+    element: <CheckoutPage />,
   },
   {
-    path: "/",
-    element: <div>Hello world!</div>,
+    path: "/cart",
+    element: <CartPage />,
   },
   {
-    path: "/",
-    element: <div>Hello world!</div>,
+    path: "/favourite",
+    element: <FavouritePage />,
+  },
+  {
+    path: "/details/:id",
+    element: <ProductDetailPage />,
   },
 ]);
 
@@ -39,14 +43,7 @@ const AppContent = () => {
   return (
     <>
       <div className={`bg-transition bg-linear-${color}`}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/category" element={<ProductCategory />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/favourite" element={<FavouritePage />} />
-          <Route path="/details/:id" element={<ProductDetailPage />} />
-        </Routes>
+        <RouterProvider router={router} />
       </div>
     </>
   );

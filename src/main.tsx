@@ -11,16 +11,14 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <FavourteProvider>
-        <CartProvider>
-          <ColorProvider>
-            <MajorProvider>
-              <AppContent />
-            </MajorProvider>
-          </ColorProvider>
-        </CartProvider>
-      </FavourteProvider>
-    </BrowserRouter>
+    <FavourteProvider>
+      <CartProvider>
+        <ColorProvider>
+          <MajorProvider>
+            <AppContent />
+          </MajorProvider>
+        </ColorProvider>
+      </CartProvider>
+    </FavourteProvider>
   </React.StrictMode>
 );
