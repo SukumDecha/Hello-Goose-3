@@ -1,7 +1,7 @@
 // ColorContext.tsx
 import React, { createContext, useContext, useState } from "react";
 
-interface CartProps {
+export interface CartProps {
   id: number;
   quantity: number;
 }

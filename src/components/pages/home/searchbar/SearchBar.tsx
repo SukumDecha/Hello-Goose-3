@@ -1,8 +1,9 @@
-import { useSearchContext } from "../../../../context/SearchContext";
+export type SearchProps = {
+  search: string;
+  setSearch: (s: string) => void;
+};
 
-export default function SearchBar() {
-  const { search, setSearch } = useSearchContext();
-
+export default function SearchBar({ search, setSearch }: SearchProps) {
   const handleSearchChange = (event: any) => {
     setSearch(event.target.value);
   };

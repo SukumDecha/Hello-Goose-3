@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import "./Login.css";
+import { useColorContext } from "../../../context/ColorContext";
 
 type Props = {
   isOpen: boolean;
@@ -7,16 +9,13 @@ type Props = {
 
 const Login = (props: Props) => {
   const ref = useRef<HTMLDivElement>(null);
+  const { color } = useColorContext();
 
   const isClickOutSide = (e: any) => {
     if (e.target.id === "login-backdrop") {
       console.log(e.target.id);
       props.setOpen(false);
     }
-  };
-
-  const borderStyle = {
-    border: "2px solid #0547A6",
   };
 
   const borderStyle2 = {
@@ -39,7 +38,7 @@ const Login = (props: Props) => {
     >
       <div
         id="login"
-        className="bg-[#73A1E4] w-[850px] h-[500px] flex justify-center items-center  rounded-3xl text-white shadow-2xl"
+        className={`${color}-primary w-[850px] h-[500px] flex justify-center items-center  rounded-3xl text-white shadow-2xl`}
       >
         <div className="flex justify-center items-center flex-col gap-4">
           <h1 className="text-center py-1 font-margarine   text-[32px] font-[400] leading-[normal] mb-6">
@@ -50,16 +49,18 @@ const Login = (props: Props) => {
           </h2>
 
           <div className="flex ">
-            <div className="p-2 bg-[#0547A6] flex items-left justify-left rounded-l-md ">
+            <div
+              className={`p-2 ${color}-secondary flex items-left justify-left rounded-l-md`}
+            >
               <img
                 src="/assets/Login/user.png"
                 alt="user"
                 width={16}
                 height={21}
-                className="bg-[#0547A6]"
+                className={`${color}-secondary`}
               ></img>
             </div>
-            <div style={borderStyle} className="w-[220px] rounded-r-md ">
+            <div className={`w-[220px] rounded-r-md border-${color}`}>
               <input
                 type="text"
                 placeholder="Username"
@@ -70,16 +71,18 @@ const Login = (props: Props) => {
           </div>
 
           <div className="flex my-3   ">
-            <div className="p-2 bg-[#0547A6] flex items-left justify-left rounded-l-md ">
+            <div
+              className={`p-2 ${color}-secondary flex items-left justify-left rounded-l-md`}
+            >
               <img
                 src="/assets/Login/lock.png"
                 alt="user"
                 width={16}
                 height={10}
-                className="bg-[#0547A6]"
+                className={`${color}-secondary`}
               ></img>
             </div>
-            <div style={borderStyle} className="w-[220px] rounded-r-md ">
+            <div className={`w-[220px] rounded-r-md border-${color}`}>
               <input
                 type="text"
                 placeholder="Password"
@@ -90,8 +93,7 @@ const Login = (props: Props) => {
           </div>
 
           <div
-            className="bg-white h-[25px] w-[200px] text-center rounded-lg flex items-center justify-center text-[#0547A6] font-margarine"
-            style={borderStyle}
+            className={`bg-white h-[25px] w-[200px] text-center rounded-lg flex items-center justify-center font-margarine text-${color}  border-${color}`}
           >
             <button>SIGN IN </button>
           </div>
@@ -100,10 +102,12 @@ const Login = (props: Props) => {
             forgot your password ?
           </p>
 
-          <hr className="border-black w-[270px] h-[1px] bg-[#0547A6] shadow-xl " />
+          <hr
+            className={`border-black w-[270px] h-[1px] ${color}-secondary shadow-xl`}
+          />
 
           <div
-            className="bg-[#0547A6] text-white h-[25px] w-[200px] text-center rounded-md flex items-center justify-center font-margarine "
+            className={`${color}-secondary text-white h-[25px] w-[200px] text-center rounded-md flex items-center justify-center font-margarine`}
             style={borderStyle2}
           >
             <button>REGISTER </button>

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useProductContext } from "../../../../../context/details/ProductContext";
-import { useState } from "react";
+import { useCartContext } from "../../../../../context/cart/CartContext";
 
 type CartCardProps = {
   id: number;
@@ -12,26 +11,40 @@ type CartCardProps = {
   checkbox: boolean;
   total: number;
   quantity: number;
+  selected: boolean;
 };
 
 const CartCard = (props: CartCardProps) => {
-  const { setProduct } = useProductContext();
+  const { setCart } = useCartContext();
 
-  // const [quantity, setQuantity] = useState(props.quantity);
-  const [quantity, setQuantity] = useState(0);
+  const updateQuantity = (increment: boolean) => {
+    setCart((prev) => {
+      const productIndex = prev.findIndex((data) => data.id === props.id);
+
+      if (productIndex !== -1) {
+        const updatedCart = [...prev];
+        const newQuantity = increment
+          ? updatedCart[productIndex].quantity + 1
+          : Math.max(updatedCart[productIndex].quantity - 1, 1);
+
+        updatedCart[productIndex] = {
+          ...updatedCart[productIndex],
+          quantity: newQuantity,
+        };
+
+        return updatedCart;
+      }
+
+      return [...prev];
+    });
+  };
 
   const increaseQuantity = () => {
-    setQuantity(quantity + 1);
+    updateQuantity(true);
   };
 
   const decreaseQuantity = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleClick = () => {
-    setProduct("" + props.id);
+    updateQuantity(false);
   };
 
   return (
@@ -53,11 +66,8 @@ const CartCard = (props: CartCardProps) => {
           )}
         </div>
         <div className={`bg-${props.color} w-[120px] h-[120px] ml-8`}>
-          <Link to={"/details"}>
-            <div
-              onClick={handleClick}
-              className="flex justify-center items-center bg-gradient-to-t from-slate-50/60 to-slate-500/5 w-[120px] h-[120px]"
-            >
+          <Link to={`/details/${props.id}`}>
+            <div className="flex justify-center items-center bg-gradient-to-t from-slate-50/60 to-slate-500/5 w-[120px] h-[120px]">
               <img
                 src={props.imgPath}
                 alt={props.product}
@@ -74,7 +84,7 @@ const CartCard = (props: CartCardProps) => {
           <button title="Decrease" onClick={decreaseQuantity}>
             -
           </button>
-          <span>{quantity}</span>
+          <span>1</span>
           <button title="Increase" onClick={increaseQuantity}>
             +
           </button>

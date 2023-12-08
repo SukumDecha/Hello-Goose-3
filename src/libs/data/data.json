@@ -5,7 +5,9 @@
     "price": 100,
     "img": "/assets/products/nightmare-shirt.png",
     "major": "SIT",
-    "type": "2"
+    "submajor": "DSI",
+    "type": "cloth",
+    "display": 0
   },
 
   {
@@ -13,7 +15,10 @@
     "name": "Hermès allback",
     "price": 31200,
     "img": "/assets/products/hermes-bag.png",
-    "major": "ENGINEER"
+    "major": "ENGINEER",
+    "submajor": "",
+    "type": "cloth",
+    "display": 2
   },
 
   {
@@ -21,7 +26,10 @@
     "name": "Canon Camera",
     "price": 16000,
     "img": "/assets/products/canon-camera.png",
-    "major": "FiET"
+    "major": "FiET",
+    "submajor": "CSM",
+    "type": "electronic",
+    "display": 2
   },
 
   {
@@ -29,7 +37,10 @@
     "name": "React Book",
     "price": 300,
     "img": "/assets/products/react-book.png",
-    "major": "SIT"
+    "major": "SIT",
+    "submajor": "IT",
+    "type": "book",
+    "display": 2
   },
 
   {
@@ -37,7 +48,10 @@
     "name": "White T-Shirt",
     "price": 99,
     "img": "/assets/products/white-t-shirt.png",
-    "major": "ENGINEER"
+    "major": "ENGINEER",
+    "submajor": "",
+    "type": "cloth",
+    "display": 0
   },
 
   {
@@ -45,32 +59,42 @@
     "name": "Cordless Microphone",
     "price": 1200,
     "img": "/assets/products/cordless-microphone.png",
-    "major": "FiET"
+    "major": "FiET",
+    "submajor": "PPT",
+    "type": "electronic",
+    "display": 2
   },
-  
+
   {
     "id": 3,
     "name": "Striped T-shirt",
     "price": 329,
     "img": "/assets/products/striped-t-shirt.png",
-    "major": "SIT"
+    "major": "SIT",
+    "submajor": "CS",
+    "type": "cloth",
+    "display": 2
   },
- 
-  
+
   {
     "id": 6,
     "name": "Calculus Book",
     "price": 500,
     "img": "/assets/products/calculus-book.png",
-    "major": "ENGINEER"
+    "major": "ENGINEER",
+    "submajor": "",
+    "type": "book",
+    "display": 2
   },
-  
- 
+
   {
     "id": 9,
     "name": "Seven Shirt",
     "price": 120,
     "img": "/assets/products/705_shirt.png",
-    "major": "FiET"
+    "major": "FiET",
+    "submajor": "IDT",
+    "type": "cloth",
+    "display": 1
   }
 ]

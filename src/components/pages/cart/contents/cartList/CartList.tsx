@@ -1,15 +1,14 @@
 import { useCartContext } from "../../../../../context/cart/CartContext";
 import { ProductProps } from "../../../home/product/ProductList";
-import jsonData from "../../../../../data/data.json";
+import { majorColor } from "../../../../../libs/Library";
+import { CartPageProps } from "../../../../../pages/cart/CartPage";
+import jsonData from "../../../../../libs/data/data.json";
 import CartCard from "../cart/CartCard";
 
-const majorColor: Record<string, string> = {
-  SIT: "blue",
-  ENGINEER: "red",
-  FiET: "orange",
-};
-
-export default function CartList() {
+export default function CartList({
+  selectedItem,
+  setSelectedItem,
+}: CartPageProps) {
   const { cart } = useCartContext();
 
   const cartItems = jsonData
@@ -26,6 +25,7 @@ export default function CartList() {
         checkbox={false}
         total={0}
         quantity={0}
+        selected={selectedItem.some((item) => item === id)}
       />
     ));
 

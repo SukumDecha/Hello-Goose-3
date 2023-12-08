@@ -22,7 +22,7 @@ const AppContent = () => {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/favourite" element={<FavouritePage />} />
-          <Route path="/details" element={<ProductDetailPage />} />
+          <Route path="/details/:id" element={<ProductDetailPage />} />
         </Routes>
       </div>
     </>

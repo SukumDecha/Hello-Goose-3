@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useColorContext } from "../../../../context/ColorContext";
 import { useMajorContext } from "../../../../context/MajorContext";
-import SearchBar from "../searchbar/SearchBar";
+import SearchBar, { SearchProps } from "../searchbar/SearchBar";
 import VisitButton from "../visitbutton/VisitButton";
 import "./Banner.css";
 
@@ -11,18 +11,10 @@ const majorTitle: Record<string, string> = {
   FiET: "Faculty of Industrial Education and Technology",
 };
 
-const Banner = () => {
+const Banner = ({ search, setSearch }: SearchProps) => {
   const { color, setColor } = useColorContext();
   const { major, setMajor } = useMajorContext();
   const [isChanging, setIsChanging] = useState(false);
-  // const [toast, setToast] = useState<ToastProps | null>(null);
-
-  // const showToast = () => {
-  //   setToast({ message: "Success", type: "success" });
-  //   setTimeout(() => {
-  //     setToast(null);
-  //   }, 3000);
-  // };
 
   const handleNext = () => {
     setIsChanging(true);
@@ -64,16 +56,8 @@ const Banner = () => {
     <div
       className={`bg-cover bg-center h-screen banner-${color} flex flex-col bg-bottom gap-0 items-center bg-transition`}
     >
-      {/* {toast && (
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )} */}
-
       <div className="search-bar z-2">
-        <SearchBar />
+        <SearchBar search={search} setSearch={setSearch} />
       </div>
 
       <div

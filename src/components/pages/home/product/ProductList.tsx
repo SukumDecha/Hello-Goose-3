@@ -1,12 +1,7 @@
-import productData from "../../../../data/data.json";
-import { useSearchContext } from "../../../../context/SearchContext";
+import productData from "../../../../libs/data/data.json";
+import { majorColor } from "../../../../libs/Library";
 import FavouriteCard from "../../favourite/card/FavouriteCard";
-
-const majorColor: Record<string, string> = {
-  SIT: "blue",
-  ENGINEER: "red",
-  FiET: "orange",
-};
+import { SearchProps } from "../searchbar/SearchBar";
 
 export interface ProductProps {
   id: number;
@@ -16,14 +11,14 @@ export interface ProductProps {
   price: number;
 }
 
-const ProductList = () => {
-  const { search } = useSearchContext();
-
+const ProductList = (props: SearchProps) => {
   return (
     <div className="flex justify-center ">
       <div className="flex justify-center flex-wrap w-[90%] gap-8 my-8 p-12 ">
         {productData
-          .filter((data) => data.name.includes(search))
+          .filter((data) =>
+            data.name.toLowerCase().includes(props.search.toLowerCase())
+          )
           .map(
             ({ major, name, price, img, id }: ProductProps, index: number) => (
               <FavouriteCard

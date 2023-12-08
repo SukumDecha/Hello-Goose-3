@@ -1,0 +1,51 @@
+/* Use for background */
+.blue-primary {
+  @apply bg-[#73A1E4];
+}
+
+.red-primary {
+  @apply bg-[#FB8383];
+}
+
+.orange-primary {
+  @apply bg-[#F79228];
+}
+
+/* Use for context */
+.orange-secondary {
+  @apply bg-[#FFBF42];
+}
+
+.red-secondary {
+  @apply bg-[#FFC9C9];
+}
+
+.blue-secondary {
+  @apply bg-[#0547A6];
+}
+
+/* Use for border */
+.border-red {
+  border: 2px solid #ffc9c9;
+}
+
+.border-orange {
+  border: 2px solid #ffbf42;
+}
+
+.border-blue {
+  border: 2px solid #0547a6;
+}
+
+/* Use for text */
+.text-blue {
+  @apply text-[#0547A6];
+}
+
+.text-red {
+  @apply text-[#FB8383];
+}
+
+.text-orange {
+  @apply text-[#ffbf42];
+}

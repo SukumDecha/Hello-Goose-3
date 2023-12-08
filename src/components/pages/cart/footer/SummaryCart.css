@@ -11,11 +11,11 @@
 }
 
 .cart-red {
-  @apply bg-red-400;
+  @apply bg-red-300;
 }
 
 .cart-orange {
-  @apply bg-orange-400;
+  @apply bg-orange-300;
 }
 
 .cart-blue {

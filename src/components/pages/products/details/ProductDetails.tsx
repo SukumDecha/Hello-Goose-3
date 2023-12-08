@@ -1,15 +1,14 @@
 import ColorButton from "./button/ColorButton";
-import { ProductProps } from "../home/product/ProductList";
-import "./ProductDetails.css";
-import { useCartContext } from "../../../context/cart/CartContext";
-import { useNavigate } from "react-router-dom";
+import { ProductProps } from "../../home/product/ProductList";
+import { useCartContext } from "../../../../context/cart/CartContext";
 import {
   FavouriteProps,
   useFavouriteContext,
-} from "../../../context/favourite/FavouriteContext";
+} from "../../../../context/favourite/FavouriteContext";
+
+import "./ProductDetails.css";
 
 const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
-  const navigate = useNavigate();
   const { cart, setCart } = useCartContext();
   const { favourite, setFavourite } = useFavouriteContext();
 
@@ -19,10 +18,6 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
     setCart((prev) => {
       return [...prev, { id, quantity: 1 }];
     });
-    setTimeout(() => {
-      /* Should route into cart page */
-      navigate("/cart", { replace: true });
-    }, 100);
 
     console.log(cart);
   };
@@ -47,7 +42,7 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
   };
 
   return (
-    <div className="flex justify-around items-center">
+    <div className="flex justify-around items-center font-margarine gap-40">
       <div className="flex flex-col items-center justify-center gap-4">
         <img src={img} alt="bag" className="h-[500px]" />
         <div className="flex flex-row mb-10 gap-5">
@@ -56,7 +51,7 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
           <img src={img} alt={img} className="h-[120px] " />
         </div>
       </div>
-      <div className="flex flex-col w-2/4 font-margarine text-white gap-5">
+      <div className="flex flex-col w-2/4 text-white gap-8 pb-24">
         <span className="text-5xl tracking-wide">{name}</span>
         <div className="flex flex-row gap-10 mx-2">
           <ColorButton color={"1"}></ColorButton>
@@ -65,20 +60,20 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
           <ColorButton color={"4"}></ColorButton>
         </div>
         <div className="flex flex-row gap-44">
-          <div className="flex flex-col font-serif text-l tracking-wide gap-2">
-            <span className="text-gray-300">PRICE</span>
+          <div className="flex flex-col text-l tracking-wide gap-2">
+            <span>PRICE</span>
             <span className={`text-[#0447A6] text-3xl font-medium`}>
               ฿ {price}
             </span>
           </div>
-          <div className={`flex flex-col font-serif tracking-wide gap-2`}>
-            <span className="text-gray-300">REVIEWS</span>
+          <div className={`flex flex-col tracking-wide gap-2`}>
+            <span>REVIEWS</span>
             <span className={`text-[#0447A6] text-3xl`}>★★★★☆</span>
           </div>
         </div>
-        <div className="flex flex-col gap-2 text-gray-300">
+        <div className="flex flex-col gap-2">
           <span className="tracking-wide text-2xl">DESCRIPTION</span>
-          <span className="w-[550px] font-serif">
+          <span className="w-[500px]">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
             nihil quasi alias adipisci maxime totam minus soluta, eos vel atque
             facere qui quibusdam minima incidunt doloribus tempora quos nisi

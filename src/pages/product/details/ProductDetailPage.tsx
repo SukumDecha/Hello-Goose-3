@@ -1,26 +1,39 @@
 import { ProductProps } from "../../../components/pages/home/product/ProductList";
-import { useProductContext } from "../../../context/details/ProductContext";
-import ProductDetails from "../../../components/pages/products/ProductDetails";
-import productData from "../../../data/data.json";
+import ProductDetails from "../../../components/pages/products/details/ProductDetails";
+import productData from "../../../libs/data/data.json";
 import HeaderSection from "../../../components/HeaderSection";
+import { useParams } from "react-router-dom";
 import "./ProductDetailPage.css";
+import { majorColor } from "../../../libs/Library";
 
 const ProductDetailPage = () => {
-  const { product } = useProductContext();
+  const { id } = useParams();
+
+  if (!id) {
+    return <div>Slug not found...</div>;
+  }
+
+  const productId = +id; // Convert id to a number
 
   const currentProduct: ProductProps | undefined = productData.find(
-    (data) => data.id === +product
+    (data) => data.id === productId
   );
 
   if (!currentProduct) {
-    return <div>Error 404</div>;
+    return <div>Product not found...</div>;
   }
 
   return (
-    <div className={`bg-${currentProduct.major} h-[100%] pb-20`}>
+    <div className={`bg-${currentProduct.major} h-[1000px] pb-20`}>
       <HeaderSection />
-      <ProductDetails {...currentProduct} />
-      {/* <Footer /> */}
+      <div className="w-full flex justify-center items-center">
+        <ProductDetails {...currentProduct} />
+      </div>
+      <div
+        className={`bg-cover bg-center banner-${
+          majorColor[currentProduct.major]
+        } h-screen mt-[-500px] w-full`}
+      ></div>
     </div>
   );
 };
