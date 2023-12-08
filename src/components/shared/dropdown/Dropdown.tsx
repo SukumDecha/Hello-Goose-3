@@ -4,24 +4,30 @@ import { useCategoryMajorContext } from "../../../context/category/CategoryMajor
 type DropdownProps = {
   name: string;
   selectList: string[];
-  selected: string
-  setSelect: (select: string) => void
+  selected: string;
+  setSelect: (select: string) => void;
+  type: string;
 };
 
 const Dropdown = (props: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const {setCategoryMajor} = useCategoryMajorContext()
+  const { setCategoryMajor } = useCategoryMajorContext();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
   const selectHandler = (s: string) => {
-    if (["SIT", "ENGINEER","FiET"].includes(s)){
-      setCategoryMajor("ALL")
+    if (
+      ["SIT", "ENGINEER", "FiET", "ALL"].includes(s) &&
+      props.type === "faculty"
+    ) {
+      setCategoryMajor("ALL");
     }
-    props.setSelect(s)
-    setIsOpen(!isOpen)
-  }
+
+    props.setSelect(s);
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div className="relative inline-block text-left">
@@ -34,7 +40,7 @@ const Dropdown = (props: DropdownProps) => {
           aria-expanded={isOpen}
           aria-haspopup="true"
         >
-         {`${props.name}: ${props.selected}`}
+          {`${props.name}: ${props.selected}`}
           <svg
             className={`-mr-1 h-5 w-5 text-gray-400 ${
               isOpen ? "transform rotate-180" : ""
@@ -63,17 +69,20 @@ const Dropdown = (props: DropdownProps) => {
         >
           <div className="py-1" role="none">
             {/* Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" */}
-            {
-            props.selectList.map((v,index) => (
-            <button onClick={()=>selectHandler(v)}
-              key={index}
-              className={`w-full text-start text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 ${props.selected === v ? "bg-gray-300":""}`}
-              role="menuitem"
-              tabIndex={-1}
-              id="menu-item-0"
-            >
-              {v}
-            </button>
+
+            {props.selectList.map((v, index) => (
+              <button
+                onClick={() => selectHandler(v)}
+                key={index}
+                className={`w-full text-start text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 ${
+                  props.selected === v ? "bg-gray-300" : ""
+                }`}
+                role="menuitem"
+                tabIndex={-1}
+                id="menu-item-0"
+              >
+                {v}
+              </button>
             ))}
           </div>
         </div>
