@@ -1,4 +1,12 @@
-export const PaymentSection = () => {
+interface PaymentProps {
+  setCurrentStep: (n: number) => void;
+}
+
+export const PaymentSection = ({ setCurrentStep }: PaymentProps) => {
+  const handleClick = () => {
+    setCurrentStep((prev) => prev + 1);
+  };
+
   return (
     <div>
       <div className=" items-center flex mx-3 mt-3">
@@ -42,7 +50,10 @@ export const PaymentSection = () => {
           </span>
         </div>
 
-        <button className="btn ml-[190px] h-[50px] w-[100px] text-[#fff]   border  border-[#FFF] font-margarine bg-[#0547A6] rounded-3xl">
+        <button
+          className="btn ml-[190px] h-[50px] w-[100px] text-[#fff]   border  border-[#FFF] font-margarine bg-[#0547A6] rounded-3xl"
+          onClick={handleClick}
+        >
           {" "}
           Pay{" "}
         </button>

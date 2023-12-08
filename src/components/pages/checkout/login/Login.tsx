@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "./Login.css";
-import { useColorContext } from "../../../context/ColorContext";
+import { useColorContext } from "../../../../context/ColorContext";
 
 type Props = {
   isOpen: boolean;
