@@ -1,12 +1,15 @@
 interface PaymentProps {
+  currentStep: number;
   setCurrentStep: (n: number) => void;
 }
 
-export const PaymentSection = ({ setCurrentStep }: PaymentProps) => {
+export const PaymentSection = ({
+  currentStep,
+  setCurrentStep,
+}: PaymentProps) => {
   const handleClick = () => {
-    setCurrentStep((prev) => prev + 1);
+    setCurrentStep(currentStep + 1);
   };
-  
 
   return (
     <div>

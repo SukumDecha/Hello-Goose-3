@@ -1,11 +1,6 @@
-import { ProductProps } from "../home/product/ProductList";
 import ProductItem from "./product/ProductItem";
 
-interface ProductSectionProps {
-  selectedItems: ProductProps[];
-}
-
-export const ProductSection = ({ selectedItems }: ProductSectionProps) => {
+export const ProductSection = () => {
   return (
     <div>
       <div className="flex justify-between text-2xl mb-5  font-margarine text-white">

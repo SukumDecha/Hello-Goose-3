@@ -8,7 +8,6 @@ type DropdownProps = {
   selectList: string[];
   selected: string;
   setSelect: (select: string) => void;
-  type: string;
 };
 
 const Dropdown = (props: DropdownProps) => {
