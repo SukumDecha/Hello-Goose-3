@@ -1,6 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useColorContext } from "../../../context/ColorContext";
+import { useLoginContext } from "../../../context/LoginContext";
+import Profile from "./Profile";
 import "./Login.css";
-import { useColorContext } from "../../../../context/ColorContext";
 
 type Props = {
   isOpen: boolean;
@@ -9,11 +11,26 @@ type Props = {
 
 const Login = (props: Props) => {
   const ref = useRef<HTMLDivElement>(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [err, setErr] = useState("");
+  const { login, setLogin } = useLoginContext();
   const { color } = useColorContext();
 
   const handleClick = () => {
+    if (username !== "admin" || password !== "123") {
+      setErr("*username or password incorrect");
+      return;
+    }
+
+    window.localStorage.setItem(
+      "token",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsIm5hbWUiOiIxMjMiLCJpYXQiOjE1MTYyMzkwMjJ9.mmV67y2NhkWSC20FeJGu6RSuTLW3NI78FQxNCUk0mYU"
+    );
+    setLogin(true);
     props.setOpen(false);
   };
+
   const isClickOutSide = (e: any) => {
     if (e.target.id === "login-backdrop") {
       props.setOpen(false);
@@ -29,6 +46,14 @@ const Login = (props: Props) => {
   };
 
   ref.current?.addEventListener("click", isClickOutSide);
+
+  if (login) {
+    return (
+      <div>
+        <Profile isOpen={props.isOpen} setOpen={props.setOpen} />
+      </div>
+    );
+  }
 
   return (
     <div
@@ -64,6 +89,7 @@ const Login = (props: Props) => {
             </div>
             <div className={`w-[220px] rounded-r-md border-${color}`}>
               <input
+                onChange={(value: any) => setUsername(value.target.value)}
                 type="text"
                 placeholder="Username"
                 style={inputStyle}
@@ -72,7 +98,7 @@ const Login = (props: Props) => {
             </div>
           </div>
 
-          <div className="flex my-3   ">
+          <div className="flex my-3">
             <div
               className={`p-2 ${color}-secondary flex items-left justify-left rounded-l-md`}
             >
@@ -86,20 +112,24 @@ const Login = (props: Props) => {
             </div>
             <div className={`w-[220px] rounded-r-md border-${color}`}>
               <input
-                type="text"
+                onChange={(value: any) => setPassword(value.target.value)}
+                type="password"
                 placeholder="Password"
                 style={inputStyle}
                 className="placeholder-white font-margarine opacity-70    ml-2"
               />
             </div>
           </div>
+          <div>
+            <p className="text-sm text-rose-600">{err}</p>
+          </div>
 
-          <div
+          <button
             onClick={handleClick}
             className={`bg-white h-[25px] w-[200px] text-center rounded-lg flex items-center justify-center font-margarine text-${color}  border-${color}`}
           >
-            <button>SIGN IN </button>
-          </div>
+            SIGN IN
+          </button>
 
           <p className="my-1 text-center opacity-80 font-margarine text-sm">
             forgot your password ?

@@ -1,8 +1,12 @@
-import { ProductProps } from "../home/product/ProductList";
-import ProductItem from "./product/ProductItem";
+import { ProductProps } from "../../../shared/product/ProductList";
+import ProductItem from "./productItem/ProductItem";
+
+export interface ProductSection extends ProductProps {
+  quantity: number;
+}
 
 interface ProductSectionProps {
-  selectedItems: ProductProps[];
+  selectedItems: ProductSection[];
 }
 
 export const ProductSection = ({ selectedItems }: ProductSectionProps) => {
@@ -16,10 +20,15 @@ export const ProductSection = ({ selectedItems }: ProductSectionProps) => {
           <span className="mr-9">TOTAL</span>
         </div>
       </div>
-
-      <ProductItem title="hey" major="SIT" quantity={5} price={100} />
-      <ProductItem title="hey" major="SIT" quantity={5} price={100} />
-      <ProductItem title="hey" major="SIT" quantity={5} price={100} />
+      {selectedItems.map((p, index) => (
+        <ProductItem
+          title={p.name}
+          major={p.major}
+          quantity={p.quantity}
+          price={p.price}
+          key={index}
+        />
+      ))}
 
       <hr className="bg-white mx-3 my-7" />
     </div>

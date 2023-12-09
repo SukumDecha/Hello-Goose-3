@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useColorContext } from "../../../context/ColorContext";
-import Category from "../../../components/pages/products/category/header/Category";
+import Category from "../../../components/pages/products/category/Category";
 import HeaderSection from "../../../components/shared/HeaderSection";
 import SearchBar from "../../../components/pages/home/searchbar/SearchBar";
-import ProductList from "../../../components/pages/products/category/ProductList";
+import ProductList from "../../../components/shared/product/ProductList";
 import { useFacultyContext } from "../../../context/category/FacultyContex";
 import { useCategoryMajorContext } from "../../../context/category/CategoryMajorContext";
 import { useCategoryContext } from "../../../context/category/CategoryContext";
@@ -15,7 +15,7 @@ const ProductCategoryPage = () => {
   const { categoryMajor, setCategoryMajor } = useCategoryMajorContext();
   const { category, setCategory } = useCategoryContext();
   const [filter, setFilter] = useState("id");
-  
+
   useEffect(() => {
     setCategoryMajor("ALL");
   }, [faculty]);

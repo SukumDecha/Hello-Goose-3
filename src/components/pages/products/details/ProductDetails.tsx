@@ -1,5 +1,5 @@
 import ColorButton from "./button/ColorButton";
-import { ProductProps } from "../../home/product/ProductList";
+import { ProductProps } from "../../../shared/product/ProductList";
 import { useCartContext } from "../../../../context/cart/CartContext";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
@@ -36,7 +36,6 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
     });
 
     toast.success(`Added ${name}`);
-    console.log(cart);
   };
 
   const handleToggleFavourite = () => {

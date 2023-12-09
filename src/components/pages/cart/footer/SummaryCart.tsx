@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+
 import { useColorContext } from "../../../../context/ColorContext";
 import { useCartContext } from "../../../../context/cart/CartContext";
+import { useLoginContext } from "../../../../context/LoginContext";
+import { useNavigate } from "react-router-dom";
+import { useLoginModalContext } from "../../../../context/LoginModalContext";
 import "./SummaryCart.css";
+import { useState } from "react";
 interface SummaryCartProps {
   totalPrice: number;
   selectedItem: number[];
@@ -9,14 +13,29 @@ interface SummaryCartProps {
 const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
   const { color } = useColorContext();
   const { setCart } = useCartContext();
+  const { login } = useLoginContext();
+  const { setLoginModal } = useLoginModalContext();
   const ringColor = `ring-2 ring-${color}-300`;
+  const navigate = useNavigate();
+  const [err, setErr] = useState("");
 
   const handleClick = () => {
+    if (selectedItem.length <= 0 ){
+      setErr("*please select product")
+      return
+    }
+    if (!login) {
+      setLoginModal(true);
+      return;
+    }
+
     setCart((prev) => {
       return [
         ...prev.filter((item) => selectedItem.some((s) => s === item.id)),
       ];
     });
+
+    navigate("/checkout");
   };
 
   return (
@@ -33,6 +52,7 @@ const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
                 id="c1"
                 name="c1"
                 type="radio"
+                checked={true}
                 className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 ${ringColor} checked:bg-white`}
               />
               <span className={`text-md`}>Store pickup (in 20 mins)</span>
@@ -73,7 +93,7 @@ const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
             <span className={`text-md`}>{`฿ ${totalPrice}`}</span>
           </div>
 
-          <Link to={"/checkout"} onClick={handleClick}>
+          <button onClick={handleClick}>
             {" "}
             <div
               className={`flex justify-between mt-2 p-2.5 rounded-2xl bg-white/20 hover-big`}
@@ -81,7 +101,8 @@ const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
               <span className={`text-white text-md`}>Check out</span>
               <span className={`text-white text-md`}>{`฿ ${totalPrice}`}</span>
             </div>
-          </Link>
+          </button>
+          <p className="text-sm text-rose-600">{err}</p>
         </div>
       </div>
     </div>

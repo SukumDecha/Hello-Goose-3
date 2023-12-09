@@ -6,7 +6,7 @@ import CartHeader from "../../components/pages/cart/header/CartHeader";
 import { useColorContext } from "../../context/ColorContext";
 import productData from "../../libs/data/data.json";
 import "./CartPage.css";
-import { ProductProps } from "../../components/pages/home/product/ProductList";
+import { ProductProps } from "../../components/shared/product/ProductList";
 import { useCartContext } from "../../context/cart/CartContext";
 
 export interface CartPageProps {

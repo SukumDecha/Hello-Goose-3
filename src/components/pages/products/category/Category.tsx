@@ -1,4 +1,4 @@
-import Dropdown from "../../../../shared/dropdown/Dropdown";
+import Dropdown from "../../../shared/dropdown/Dropdown";
 
 type Props = {
   faculty: string;

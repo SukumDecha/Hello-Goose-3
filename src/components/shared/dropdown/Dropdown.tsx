@@ -8,7 +8,6 @@ type DropdownProps = {
   selectList: string[];
   selected: string;
   setSelect: (select: string) => void;
-  type: string;
 };
 
 const Dropdown = (props: DropdownProps) => {
@@ -21,10 +20,7 @@ const Dropdown = (props: DropdownProps) => {
   };
 
   const selectHandler = (s: string) => {
-    if (
-      ["SIT", "ENGINEER", "FiET", "ALL"].includes(s) &&
-      props.type === "faculty"
-    ) {
+    if (["SIT", "ENGINEER", "FiET", "ALL"].includes(s)) {
       setCategoryMajor("ALL");
     }
 

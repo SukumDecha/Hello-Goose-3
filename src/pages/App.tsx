@@ -2,11 +2,10 @@
 
 import ProductCategory from "./product/categories/ProductCategoryPage";
 import ProductDetailPage from "./product/details/ProductDetailPage";
-import CheckoutPage from "./checkout/CheckoutPage";
 import CartPage from "./cart/CartPage";
 import FavouritePage from "./favourite/FavouritePage";
 import HomePage from "./home/HomePage";
-
+import CheckoutPage from "./checkout/CheckoutPage";
 import { useColorContext } from "../context/ColorContext";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 

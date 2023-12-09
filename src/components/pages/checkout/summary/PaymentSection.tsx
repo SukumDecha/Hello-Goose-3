@@ -1,12 +1,24 @@
+import { useState } from "react";
+
 interface PaymentProps {
+  currentStep: number;
   setCurrentStep: (n: number) => void;
 }
 
-export const PaymentSection = ({ setCurrentStep }: PaymentProps) => {
+export const PaymentSection = ({
+  currentStep,
+  setCurrentStep,
+}: PaymentProps) => {
+  const [err, setErr] = useState("");
+  const [payment, setPayment] = useState("");
+
   const handleClick = () => {
-    setCurrentStep((prev) => prev + 1);
+    if (!payment) {
+      setErr("*please select payment method");
+      return;
+    }
+    setCurrentStep(currentStep + 1);
   };
-  
 
   return (
     <div>
@@ -15,12 +27,18 @@ export const PaymentSection = ({ setCurrentStep }: PaymentProps) => {
           {" "}
           PAYMENT <br /> WITH{" "}
         </div>
-        <form className="flex">
+        <form
+          className="flex"
+          onClick={(e: any) => {
+            setPayment(e.target.value);
+          }}
+        >
           <div className="flex flex-row gap-4 items-center ml-8">
             <input
               id="c1"
               name="c1"
               type="radio"
+              value="paypal"
               className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 checked:bg-white`}
             />
             <span className="text-[rga(255,255,255,0.70)  text-white font-[24px] font-margarine">
@@ -34,6 +52,7 @@ export const PaymentSection = ({ setCurrentStep }: PaymentProps) => {
               id="c2"
               name="c1"
               type="radio"
+              value="create_card"
               className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 checked:bg-white`}
             />
             <span className="text-[rga(255,255,255,0.70)  text-white font-[24px] font-margarine">
@@ -47,6 +66,7 @@ export const PaymentSection = ({ setCurrentStep }: PaymentProps) => {
               id="c3"
               name="c1"
               type="radio"
+              value="cash_on_delivery"
               className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 checked:bg-white`}
             />
             <span className="text-[rga(255,255,255,0.70)  text-white font-[24px] font-margarine ">
@@ -62,6 +82,9 @@ export const PaymentSection = ({ setCurrentStep }: PaymentProps) => {
           {" "}
           Pay{" "}
         </button>
+      </div>
+      <div className="flex">
+        <p className="text-sm text-rose-600 ml-auto">{err}</p>
       </div>
     </div>
   );

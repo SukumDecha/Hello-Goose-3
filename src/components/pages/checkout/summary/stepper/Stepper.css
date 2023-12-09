@@ -13,9 +13,11 @@
   .complete .step {
     @apply bg-blue-200;
   }
+  
   .complete p {
     @apply text-white;
   }
+
   .complete:not(:first-child):before,
   .active:not(:first-child):before {
     @apply bg-slate-700;

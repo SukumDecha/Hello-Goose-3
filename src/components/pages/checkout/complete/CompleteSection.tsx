@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const SummarySection = () => {
   return (
     <div className="flex flex-col items-center relative my-[100px]">
@@ -9,7 +11,7 @@ export const SummarySection = () => {
           alignItems: "flex-start",
         }}
       >
-        <img src="../public/assets/Access/check.png" alt="Your Image" />
+        <img src="/assets/complete/check.png" alt="Your Image" />
       </div>
       <div className="flex items-center content-center  ">
         <p>
@@ -25,12 +27,14 @@ export const SummarySection = () => {
           </h2>
         </p>
       </div>
+      <Link to="/category">
       <button
         type="submit"
         className="btn items-center h-[50px] w-[250px] text-[#fff]  mt-5 border  border-[#FFF] font-margarine bg-[#0547A6] rounded-sm"
       >
         <h1 className="text-[#fff] opacity-[]"> Continue to shopping </h1>
       </button>
+     </Link>
     </div>
   );
 };

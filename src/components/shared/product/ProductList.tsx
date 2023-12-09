@@ -1,8 +1,8 @@
-import productData from "../../../../libs/data/data.json";
-import { majorColor } from "../../../../libs/Library";
-import FavouriteCard from "../../favourite/card/FavouriteCard";
-import { SearchProps } from "../searchbar/SearchBar";
-import { useColorContext } from "../../../../context/ColorContext";
+import productData from "../../../libs/data/data.json";
+import { majorColor } from "../../../libs/Library";
+import FavouriteCard from "../../pages/favourite/card/FavouriteCard";
+import { SearchProps } from "../../pages/home/searchbar/SearchBar";
+import { useColorContext } from "../../../context/ColorContext";
 
 export interface ProductProps {
   id: number;
@@ -13,19 +13,38 @@ export interface ProductProps {
 }
 
 export interface ProductListProps extends SearchProps {
+  faculty: string;
+  major: string;
+  category: string;
+  filter: string;
   id: number;
   title: string;
 }
 
 const ProductList = (props: ProductListProps) => {
   const { color } = useColorContext();
-  const productList = productData
+  const products = productData
     .filter((data) =>
       data.name.toLowerCase().includes(props.search.toLowerCase())
     )
-    .filter((data) => data.display === props.id);
+    .filter(
+      (data) =>
+        data.display === props.id &&
+        (props.faculty === "ALL" ? true : data.major === props.faculty) &&
+        (props.major === "ALL" ? true : data.submajor === props.major) &&
+        (props.category === "ALL" ? true : data.type === props.category)
+    )
+    .sort((a, b) => {
+      if (props.filter === "Highest Price") {
+        return a.price > b.price ? -1 : 1;
+      }
+      if (props.filter === "Lowest Price") {
+        return a.price > b.price ? 1 : -1;
+      }
+      return a.id > b.id ? 1 : -1;
+    });
 
-  if (productList.length <= 0) {
+  if (products.length <= 0) {
     return <div></div>;
   }
 
@@ -36,7 +55,7 @@ const ProductList = (props: ProductListProps) => {
           {props.title}
         </span>
         <div className="flex items-center h-[350px] justify-start overflow-x-scroll gap-9 no-scrollbar px-3">
-          {productList.map(
+          {products.map(
             ({ major, name, price, img, id }: ProductProps, index: number) => (
               <FavouriteCard
                 key={index}

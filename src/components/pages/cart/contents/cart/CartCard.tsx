@@ -19,10 +19,10 @@ const CartCard = (props: CartCardProps) => {
   const { selectedItem, setSelectedItem } = props;
 
   const handleCheckBox = () => {
-    setSelectedItem((prev) =>
-      prev.includes(props.id)
-        ? prev.filter((id) => id !== props.id)
-        : [...prev, props.id]
+    setSelectedItem(
+      selectedItem.includes(props.id)
+        ? selectedItem.filter((id) => id !== props.id)
+        : [...selectedItem, props.id]
     );
   };
 

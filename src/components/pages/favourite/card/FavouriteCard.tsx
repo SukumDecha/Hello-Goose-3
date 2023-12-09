@@ -29,9 +29,15 @@ const FavouriteCard = (props: FavouriteCardProps) => {
           <div className="flex flex-col justify-center bg-gradient-to-t from-slate-50/60 to-slate-500/5 rounded-2xl w-[250px] h-[300px]">
             <div className="flex justify-end px-[5%] pt-[5%]">
               <div>
-                {isFavorite && (
+                {isFavorite ? (
                   <img
                     src="/assets/products/heartFill.png"
+                    alt={props.product}
+                    width={30}
+                  />
+                ) : (
+                  <img
+                    src="/assets/products/heartNotFill.png"
                     alt={props.product}
                     width={30}
                   />
