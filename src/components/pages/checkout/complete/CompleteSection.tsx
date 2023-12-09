@@ -11,7 +11,7 @@ export const SummarySection = () => {
           alignItems: "flex-start",
         }}
       >
-        <img src="../public/assets/complete/check.png" alt="Your Image" />
+        <img src="/assets/complete/check.png" alt="Your Image" />
       </div>
       <div className="flex items-center content-center  ">
         <p>

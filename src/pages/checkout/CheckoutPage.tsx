@@ -30,7 +30,7 @@ export default function CheckoutPage() {
   }, 0);
 
   return (
-    <div className="bg-[#86AEE8] flex flex-col gap-10 h-screen items-center justify-center p-8 ">
+    <div className="bg-[#86AEE8] flex flex-col gap-10 h-auto items-center justify-center p-8 ">
       <Stepper currentStep={currentStep} />
       <div className="bg-[#528FE9] w-[80%] h-fit flex flex-col justify-center  rounded-3xl p-8">
         {currentStep === 2 ? (

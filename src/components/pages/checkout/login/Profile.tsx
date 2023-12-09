@@ -42,10 +42,7 @@ const Profile = (props: Props) => {
             Profile
           </h1>
           <div className="mt-12">
-            <img
-              src="../../../../../../public/assets/avatar/avatar.png"
-              width={"100px"}
-            ></img>
+            <img src="/assets/avatar/avatar.png" width={"100px"}></img>
           </div>
           <div className="font-margarine mt-4">
             <h1 className="text-2xl"> BILLING ADDRESS</h1>
