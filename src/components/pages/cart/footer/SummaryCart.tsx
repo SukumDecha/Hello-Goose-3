@@ -33,6 +33,7 @@ const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
                 id="c1"
                 name="c1"
                 type="radio"
+                checked={true}
                 className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 ${ringColor} checked:bg-white`}
               />
               <span className={`text-md`}>Store pickup (in 20 mins)</span>

@@ -100,8 +100,8 @@
   {
     "id": 10,
     "name": "Algorithm book",
-    "price": 100,
-    "img": "/assets/products/algorithm book.png",
+    "price": 650,
+    "img": "/assets/products/algorithm-book.jpeg",
     "major": "SIT",
     "submajor": "IT",
     "type": "cloth",
@@ -110,8 +110,8 @@
   {
     "id": 11,
     "name": "AI book",
-    "price": 100,
-    "img": "/assets/products/aibook.png",
+    "price": 800,
+    "img": "/assets/products/aibook.jpeg",
     "major": "SIT",
     "submajor": "CS",
     "type": "cloth",
@@ -120,17 +120,17 @@
   {
     "id": 12,
     "name": "Arduino Nano",
-    "price": 100,
+    "price": 300,
     "img": "/assets/products/ARDUINO_NANO_02-removebg-preview.png",
     "major": "SIT",
     "submajor": "DSI",
     "type": "cloth",
-    "display": 0
+    "display": 1
   },
   {
     "id": 13,
     "name": "Black Shirt",
-    "price": 100,
+    "price": 250,
     "img": "/assets/products/b-c-mens-e150-t-shirt-dark-grey-tu01tblackshirt.webp",
     "major": "ENGINEER",
     "submajor": "",
@@ -140,17 +140,17 @@
   {
     "id": 14,
     "name": "C++ Book",
-    "price": 100,
+    "price": 550,
     "img": "/assets/products/c++.jpeg",
     "major": "FiET",
     "submajor": "PPT",
     "type": "cloth",
-    "display": 0
+    "display": 1
   },
   {
     "id": 15,
-    "name": "C++ Book for engineer",
-    "price": 100,
+    "name": "C++ Book (ENG)",
+    "price": 700,
     "img": "/assets/products/c++book_for_engineer.png",
     "major": "FiET",
     "submajor": "IDT",
@@ -159,8 +159,8 @@
   },
   {
     "id": 16,
-    "name": "Calculus Book 1-1",
-    "price": 100,
+    "name": "Calculus Book 1",
+    "price": 450,
     "img": "/assets/products/calculusbook.jpg",
     "major": "FiET",
     "submajor": "CSM",
@@ -170,17 +170,17 @@
   {
     "id": 17,
     "name": "Coat",
-    "price": 100,
+    "price": 600,
     "img": "/assets/products/coat.jpg",
     "major": "SIT",
     "submajor": "IT",
     "type": "cloth",
-    "display": 0
+    "display": 1
   },
   {
     "id": 18,
     "name": "Data Structor",
-    "price": 100,
+    "price": 400,
     "img": "/assets/products/datastructor.jpeg",
     "major": "SIT",
     "submajor": "CS",
@@ -190,17 +190,17 @@
   {
     "id": 19,
     "name": "Data Structor in C",
-    "price": 100,
+    "price": 900,
     "img": "/assets/products/datastructure_in_C_book.webp",
     "major": "SIT",
     "submajor": "DSI",
     "type": "cloth",
-    "display": 0
+    "display": 1
   },
   {
     "id": 20,
     "name": "Green Shirt",
-    "price": 100,
+    "price": 180,
     "img": "/assets/products/greenshirt.jpeg",
     "major": "ENGINEER",
     "submajor": "",
@@ -210,7 +210,7 @@
   {
     "id": 21,
     "name": "Java Book",
-    "price": 100,
+    "price": 350,
     "img": "/assets/products/javabook.jpeg",
     "major": "FiET",
     "submajor": "PPT",
@@ -220,7 +220,7 @@
   {
     "id": 22,
     "name": "Keyboard",
-    "price": 100,
+    "price": 220,
     "img": "/assets/products/keyboard.jpeg",
     "major": "FiET",
     "submajor": "IDT",
@@ -230,7 +230,7 @@
   {
     "id": 23,
     "name": "Rasberrypi",
-    "price": 100,
+    "price": 280,
     "img": "/assets/products/rasberrypi.jpeg",
     "major": "FiET",
     "submajor": "CSM",
@@ -240,7 +240,7 @@
   {
     "id": 24,
     "name": "Web Development Book",
-    "price": 100,
+    "price": 500,
     "img": "/assets/products/webdevbook.jpeg",
     "major": "SIT",
     "submajor": "IT",

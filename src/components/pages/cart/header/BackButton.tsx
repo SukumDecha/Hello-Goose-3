@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const BackButton = () => {
   return (
-    <Link to={"/"}>
+    <Link to={"/category"}>
       <div className="flex items-center justify-center text-2xl border-4 border-white rounded-xl px-3 py-1 hover-small">
         <svg
           className="mr-3 fill-white"
