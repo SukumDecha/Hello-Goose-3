@@ -1,5 +1,5 @@
 import { TiTick } from "react-icons/ti";
-import "./stepper.css";
+import "./Stepper.css";
 
 interface StepperProps {
   currentStep: number;
