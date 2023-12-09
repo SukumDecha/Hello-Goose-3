@@ -25,9 +25,12 @@ export default function CheckoutPage() {
     <div className="bg-[#86AEE8] flex flex-col gap-10 h-fit items-center justify-center p-8 ">
       <Stepper currentStep={currentStep} />
       <div className="bg-[#528FE9] w-[80%] h-fit flex flex-col justify-center  rounded-3xl p-8">
-        <ProductSection selectedItems={getSelectedProduct} />
+        <ProductSection />
         <AddressSection totalPrice={totalPrice} />
-        <PaymentSection setCurrentStep={setCurrentStep} />
+        <PaymentSection
+          currentStep={currentStep}
+          setCurrentStep={setCurrentStep}
+        />
         {/* <Summary /> */}
       </div>
     </div>

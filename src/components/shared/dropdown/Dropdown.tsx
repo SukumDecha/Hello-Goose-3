@@ -20,10 +20,7 @@ const Dropdown = (props: DropdownProps) => {
   };
 
   const selectHandler = (s: string) => {
-    if (
-      ["SIT", "ENGINEER", "FiET", "ALL"].includes(s) &&
-      props.type === "faculty"
-    ) {
+    if (["SIT", "ENGINEER", "FiET", "ALL"].includes(s)) {
       setCategoryMajor("ALL");
     }
 
