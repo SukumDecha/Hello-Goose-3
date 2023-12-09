@@ -104,7 +104,7 @@
     "img": "/assets/products/algorithm-book.jpeg",
     "major": "SIT",
     "submajor": "IT",
-    "type": "cloth",
+    "type": "book",
     "display": 0
   },
   {
@@ -114,7 +114,7 @@
     "img": "/assets/products/aibook.jpeg",
     "major": "SIT",
     "submajor": "CS",
-    "type": "cloth",
+    "type": "book",
     "display": 0
   },
   {
@@ -124,7 +124,7 @@
     "img": "/assets/products/ARDUINO_NANO_02-removebg-preview.png",
     "major": "SIT",
     "submajor": "DSI",
-    "type": "cloth",
+    "type": "electronic",
     "display": 1
   },
   {
@@ -144,17 +144,17 @@
     "img": "/assets/products/c++.jpeg",
     "major": "FiET",
     "submajor": "PPT",
-    "type": "cloth",
+    "type": "book",
     "display": 1
   },
   {
     "id": 15,
-    "name": "C++ Book (ENG)",
+    "name": "C++ (ENG)",
     "price": 700,
     "img": "/assets/products/c++book_for_engineer.png",
     "major": "FiET",
     "submajor": "IDT",
-    "type": "cloth",
+    "type": "book",
     "display": 0
   },
   {
@@ -164,7 +164,7 @@
     "img": "/assets/products/calculusbook.jpg",
     "major": "FiET",
     "submajor": "CSM",
-    "type": "cloth",
+    "type": "book",
     "display": 0
   },
   {
@@ -184,17 +184,17 @@
     "img": "/assets/products/datastructor.jpeg",
     "major": "SIT",
     "submajor": "CS",
-    "type": "cloth",
+    "type": "book",
     "display": 0
   },
   {
     "id": 19,
-    "name": "Data Structor in C",
+    "name": "Data Structures",
     "price": 900,
     "img": "/assets/products/datastructure_in_C_book.webp",
     "major": "SIT",
     "submajor": "DSI",
-    "type": "cloth",
+    "type": "book",
     "display": 1
   },
   {
@@ -214,27 +214,27 @@
     "img": "/assets/products/javabook.jpeg",
     "major": "FiET",
     "submajor": "PPT",
-    "type": "cloth",
+    "type": "book",
     "display": 0
   },
   {
     "id": 22,
-    "name": "Keyboard",
+    "name": "Black Keyboard",
     "price": 220,
     "img": "/assets/products/keyboard.jpeg",
     "major": "FiET",
     "submajor": "IDT",
-    "type": "cloth",
+    "type": "electronic",
     "display": 0
   },
   {
     "id": 23,
-    "name": "Rasberrypi",
+    "name": "Rasberrypi Board",
     "price": 280,
     "img": "/assets/products/rasberrypi.jpeg",
     "major": "FiET",
     "submajor": "CSM",
-    "type": "cloth",
+    "type": "electronic",
     "display": 0
   },
   {
@@ -244,7 +244,7 @@
     "img": "/assets/products/webdevbook.jpeg",
     "major": "SIT",
     "submajor": "IT",
-    "type": "cloth",
+    "type": "book",
     "display": 0
   }
 ]

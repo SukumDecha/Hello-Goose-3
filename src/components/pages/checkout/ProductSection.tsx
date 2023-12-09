@@ -1,6 +1,15 @@
+import { ProductProps } from "../home/product/ProductList";
 import ProductItem from "./product/ProductItem";
 
-export const ProductSection = () => {
+export interface ProductSection extends ProductProps {
+  quantity: number;
+}
+
+interface ProductSectionProps {
+  selectedItems: ProductSection[];
+}
+
+export const ProductSection = ({ selectedItems }: ProductSectionProps) => {
   return (
     <div>
       <div className="flex justify-between text-2xl mb-5  font-margarine text-white">
@@ -11,10 +20,15 @@ export const ProductSection = () => {
           <span className="mr-9">TOTAL</span>
         </div>
       </div>
-
-      <ProductItem title="hey" major="SIT" quantity={5} price={100} />
-      <ProductItem title="hey" major="SIT" quantity={5} price={100} />
-      <ProductItem title="hey" major="SIT" quantity={5} price={100} />
+      {selectedItems.map((p, index) => (
+        <ProductItem
+          title={p.name}
+          major={p.major}
+          quantity={p.quantity}
+          price={p.price}
+          key={index}
+        />
+      ))}
 
       <hr className="bg-white mx-3 my-7" />
     </div>

@@ -27,7 +27,7 @@ export const AddressSection = (prop: props) => {
           </div>
 
           <div className="ml-[150px]">
-            <span className="text-white flex  justify-between ml-[100px] font-margarine">
+            <span className="text-white flex justify-between font-margarine ml-auto">
               {prop.totalPrice}
             </span>
             <span className="text-white flex  justify-between ml-[120px] font-margarine my-3 ">
@@ -59,7 +59,7 @@ export const AddressSection = (prop: props) => {
         </div>
       </div>
 
-      <hr className="bg-white mx-3 " />
+      <hr className="bg-white mx-3 my-7" />
     </div>
   );
 };

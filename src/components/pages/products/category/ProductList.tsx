@@ -4,7 +4,7 @@ import FavouriteCard from "../../favourite/card/FavouriteCard";
 import { SearchProps } from "../../home/searchbar/SearchBar";
 import { useColorContext } from "../../../../context/ColorContext";
 import { ProductProps } from "../../home/product/ProductList";
-
+import "./ProductList.css";
 export interface ProductListProps extends SearchProps {
   faculty: string;
   major: string;
@@ -44,7 +44,7 @@ const ProductList = (props: ProductListProps) => {
   return (
     <div className="flex justify-center w-full">
       <div className="flex justify-center flex-col w-[93%] mb-20">
-        <span className={`text-${color} font-margarine text-5xl mb-10`}>
+        <span className={`textt-${color} font-margarine text-5xl mb-10`}>
           {props.title}
         </span>
         <div className="flex items-center h-[350px] justify-start overflow-x-scroll gap-9 no-scrollbar px-3">
