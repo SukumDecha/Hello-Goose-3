@@ -5,6 +5,7 @@ import { useLoginContext } from "../../../../context/LoginContext";
 import { useNavigate } from "react-router-dom";
 import { useLoginModalContext } from "../../../../context/LoginModalContext";
 import "./SummaryCart.css";
+import { useState } from "react";
 interface SummaryCartProps {
   totalPrice: number;
   selectedItem: number[];
@@ -16,8 +17,13 @@ const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
   const { setLoginModal } = useLoginModalContext();
   const ringColor = `ring-2 ring-${color}-300`;
   const navigate = useNavigate();
+  const [err, setErr] = useState("");
 
   const handleClick = () => {
+    if (selectedItem.length <= 0 ){
+      setErr("*please select product")
+      return
+    }
     if (!login) {
       setLoginModal(true);
       return;
@@ -96,6 +102,7 @@ const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
               <span className={`text-white text-md`}>{`฿ ${totalPrice}`}</span>
             </div>
           </button>
+          <p className="text-sm text-rose-600">{err}</p>
         </div>
       </div>
     </div>

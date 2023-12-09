@@ -1,5 +1,5 @@
 import { useCartContext } from "../../../../../context/cart/CartContext";
-import { ProductProps } from "../../../home/product/ProductList";
+import { ProductProps } from "../../../../shared/product/ProductList";
 import { majorColor } from "../../../../../libs/Library";
 import { CartPageProps } from "../../../../../pages/cart/CartPage";
 import jsonData from "../../../../../libs/data/data.json";

@@ -1,4 +1,4 @@
-import { ProductProps } from "../home/product/ProductList";
+import { ProductProps } from "../../shared/product/ProductList";
 import ProductItem from "./product/ProductItem";
 
 export interface ProductSection extends ProductProps {

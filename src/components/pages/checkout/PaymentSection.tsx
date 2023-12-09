@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface PaymentProps {
   currentStep: number;
   setCurrentStep: (n: number) => void;
@@ -8,9 +10,14 @@ export const PaymentSection = ({
   setCurrentStep,
 }: PaymentProps) => {
   const handleClick = () => {
+    if (!payment) {
+      setErr("*please select payment method")
+      return
+    }
     setCurrentStep(currentStep + 1);
   };
-
+  const [err, setErr] = useState("");
+  const [payment, setPayment] = useState("");
   return (
     <div>
       <div className=" items-center flex mx-3 mt-3">
@@ -18,12 +25,13 @@ export const PaymentSection = ({
           {" "}
           PAYMENT <br /> WITH{" "}
         </div>
-        <form className="flex">
+        <form className="flex" onClick={(e: any) => { setPayment(e.target.value) }}>
           <div className="flex flex-row gap-4 items-center ml-8">
             <input
               id="c1"
               name="c1"
               type="radio"
+              value="paypal"
               className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 checked:bg-white`}
             />
             <span className="text-[rga(255,255,255,0.70)  text-white font-[24px] font-margarine">
@@ -37,6 +45,7 @@ export const PaymentSection = ({
               id="c2"
               name="c1"
               type="radio"
+              value="create_card"
               className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 checked:bg-white`}
             />
             <span className="text-[rga(255,255,255,0.70)  text-white font-[24px] font-margarine">
@@ -50,6 +59,7 @@ export const PaymentSection = ({
               id="c3"
               name="c1"
               type="radio"
+              value="cash_on_delivery"
               className={`appearance-none rounded-full h-4 w-4 cursor-pointer border-2 checked:bg-white`}
             />
             <span className="text-[rga(255,255,255,0.70)  text-white font-[24px] font-margarine ">
@@ -66,6 +76,11 @@ export const PaymentSection = ({
           Pay{" "}
         </button>
       </div>
+      <div className="flex">
+
+        <p className="text-sm text-rose-600 ml-auto">{err}</p>
+      </div>
+
     </div>
   );
 };

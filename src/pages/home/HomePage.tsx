@@ -5,7 +5,7 @@ import CardSection from "../../components/pages/home/coupon/CardSection";
 import { useColorContext } from "../../context/ColorContext";
 import "./HomePage.css";
 import { useState } from "react";
-import ProductList from "../../components/pages/home/product/ProductList";
+import ProductList from "../../components/shared/product/ProductList";
 
 const Home = () => {
   const { color } = useColorContext();
@@ -21,18 +21,29 @@ const Home = () => {
         <div className={`bg-transition bg-linear-${color}`}>
           <CardSection />
           <ProductList
+            faculty="ALL"
+            major="ALL"
+            category={"ALL"}
+            filter={"ID"}
             search={search}
             setSearch={setSearch}
             title="New arrival"
-            id={2}
-          />
+            id={2} />
           <ProductList
+            faculty="ALL"
+            major="ALL"
+            category={"ALL"}
+            filter={"ID"}
             search={search}
             setSearch={setSearch}
             title="The most recomended"
             id={1}
           />
           <ProductList
+            faculty="ALL"
+            major="ALL"
+            category={"ALL"}
+            filter={"ID"}
             search={search}
             setSearch={setSearch}
             title="Products"
@@ -42,12 +53,20 @@ const Home = () => {
       ) : (
         <div className={`bg-cover bg-center banner-${color}`}>
           <ProductList
+            faculty="ALL"
+            major="ALL"
+            category={"ALL"}
+            filter={"ID"}
             search={search}
             setSearch={setSearch}
             title="New arrival"
             id={2}
           />
           <ProductList
+            faculty="ALL"
+            major="ALL"
+            category={"ALL"}
+            filter={"ID"}
             search={search}
             setSearch={setSearch}
             title="Products"

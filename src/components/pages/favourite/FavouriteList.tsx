@@ -1,6 +1,6 @@
 import { useFavouriteContext } from "../../../context/favourite/FavouriteContext";
 import { useColorContext } from "../../../context/ColorContext";
-import { ProductProps } from "../home/product/ProductList";
+import { ProductProps } from "../../shared/product/ProductList";
 import jsonData from "../../../libs/data/data.json";
 import FavouriteCard from "./card/FavouriteCard";
 import ContinueShopping from "../cart/header/BackButton";

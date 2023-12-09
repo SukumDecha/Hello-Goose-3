@@ -21,11 +21,11 @@ export default function ProductItem({
           </div>
 
           <div className="w-8/12 flex justify-between text-lg text-gray-200">
-            <span className="flex justify-between ml-[100px] font-margarine">
+            <span className="flex justify-between ml-32 font-margarine">
               {quantity}
             </span>
-            <span className="flex ml-[20px] font-margarine ">{price}</span>
-            <span className="flex mx-5 font-margarine">{totalPrice}</span>
+            <span className="flex ml-2 font-margarine ">{price}</span>
+            <span className="flex mr-10 font-margarine">{totalPrice}</span>
           </div>
         </div>
       </div>

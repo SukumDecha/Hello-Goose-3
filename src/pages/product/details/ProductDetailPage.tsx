@@ -1,4 +1,4 @@
-import { ProductProps } from "../../../components/pages/home/product/ProductList";
+import { ProductProps } from "../../../components/shared/product/ProductList";
 import ProductDetails from "../../../components/pages/products/details/ProductDetails";
 import productData from "../../../libs/data/data.json";
 import HeaderSection from "../../../components/shared/HeaderSection";

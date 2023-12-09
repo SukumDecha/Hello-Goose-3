@@ -1,10 +1,17 @@
-import productData from "../../../../libs/data/data.json";
-import { majorColor } from "../../../../libs/Library";
-import FavouriteCard from "../../favourite/card/FavouriteCard";
-import { SearchProps } from "../../home/searchbar/SearchBar";
-import { useColorContext } from "../../../../context/ColorContext";
-import { ProductProps } from "../../home/product/ProductList";
-import "./ProductList.css";
+import productData from "../../../libs/data/data.json";
+import { majorColor } from "../../../libs/Library";
+import FavouriteCard from "../../pages/favourite/card/FavouriteCard";
+import { SearchProps } from "../../pages/home/searchbar/SearchBar";
+import { useColorContext } from "../../../context/ColorContext";
+
+export interface ProductProps {
+  id: number;
+  major: string;
+  name: string;
+  img: string;
+  price: number;
+}
+
 export interface ProductListProps extends SearchProps {
   faculty: string;
   major: string;

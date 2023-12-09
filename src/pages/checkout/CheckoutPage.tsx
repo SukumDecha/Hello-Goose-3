@@ -5,7 +5,7 @@ import { useCartContext } from "../../context/cart/CartContext";
 import ProductSection from "../../components/pages/checkout/ProductSection";
 import Stepper from "../../components/pages/checkout/stepper/Stepper";
 import jsonData from "../../libs/data/data.json";
-import { ProductProps } from "../../components/pages/home/product/ProductList";
+import { ProductProps } from "../../components/shared/product/ProductList";
 import SummarySection from "../../components/pages/checkout/complete/CompleteSection";
 
 export interface ProductSectionProps extends ProductProps {
