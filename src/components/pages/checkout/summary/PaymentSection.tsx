@@ -9,15 +9,17 @@ export const PaymentSection = ({
   currentStep,
   setCurrentStep,
 }: PaymentProps) => {
+  const [err, setErr] = useState("");
+  const [payment, setPayment] = useState("");
+
   const handleClick = () => {
     if (!payment) {
-      setErr("*please select payment method")
-      return
+      setErr("*please select payment method");
+      return;
     }
     setCurrentStep(currentStep + 1);
   };
-  const [err, setErr] = useState("");
-  const [payment, setPayment] = useState("");
+
   return (
     <div>
       <div className=" items-center flex mx-3 mt-3">
@@ -25,7 +27,12 @@ export const PaymentSection = ({
           {" "}
           PAYMENT <br /> WITH{" "}
         </div>
-        <form className="flex" onClick={(e: any) => { setPayment(e.target.value) }}>
+        <form
+          className="flex"
+          onClick={(e: any) => {
+            setPayment(e.target.value);
+          }}
+        >
           <div className="flex flex-row gap-4 items-center ml-8">
             <input
               id="c1"
@@ -77,10 +84,8 @@ export const PaymentSection = ({
         </button>
       </div>
       <div className="flex">
-
         <p className="text-sm text-rose-600 ml-auto">{err}</p>
       </div>
-
     </div>
   );
 };

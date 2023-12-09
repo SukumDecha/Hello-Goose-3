@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import "./Login.css";
-import { useColorContext } from "../../../../context/ColorContext";
-import { useLoginContext } from "../../../../context/LoginContext";
+import { useColorContext } from "../../../context/ColorContext";
+import { useLoginContext } from "../../../context/LoginContext";
 import Profile from "./Profile";
+import "./Login.css";
 
 type Props = {
   isOpen: boolean;
@@ -11,17 +11,18 @@ type Props = {
 
 const Login = (props: Props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { color } = useColorContext();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
   const { login, setLogin } = useLoginContext();
+  const { color } = useColorContext();
 
   const handleClick = () => {
     if (username !== "admin" || password !== "123") {
       setErr("*username or password incorrect");
       return;
     }
+
     window.localStorage.setItem(
       "token",
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsIm5hbWUiOiIxMjMiLCJpYXQiOjE1MTYyMzkwMjJ9.mmV67y2NhkWSC20FeJGu6RSuTLW3NI78FQxNCUk0mYU"
@@ -29,6 +30,7 @@ const Login = (props: Props) => {
     setLogin(true);
     props.setOpen(false);
   };
+
   const isClickOutSide = (e: any) => {
     if (e.target.id === "login-backdrop") {
       props.setOpen(false);
@@ -44,6 +46,7 @@ const Login = (props: Props) => {
   };
 
   ref.current?.addEventListener("click", isClickOutSide);
+
   if (login) {
     return (
       <div>
@@ -51,6 +54,7 @@ const Login = (props: Props) => {
       </div>
     );
   }
+
   return (
     <div
       className={`${
@@ -85,9 +89,7 @@ const Login = (props: Props) => {
             </div>
             <div className={`w-[220px] rounded-r-md border-${color}`}>
               <input
-                onChange={(value: React.ChangeEvent<HTMLInputElement>) =>
-                  setUsername(value.target.value)
-                }
+                onChange={(value: any) => setUsername(value.target.value)}
                 type="text"
                 placeholder="Username"
                 style={inputStyle}
@@ -110,9 +112,7 @@ const Login = (props: Props) => {
             </div>
             <div className={`w-[220px] rounded-r-md border-${color}`}>
               <input
-                onChange={(value: React.ChangeEvent<HTMLInputElement>) =>
-                  setPassword(value.target.value)
-                }
+                onChange={(value: any) => setPassword(value.target.value)}
                 type="password"
                 placeholder="Password"
                 style={inputStyle}

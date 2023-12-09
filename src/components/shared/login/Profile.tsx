@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { useColorContext } from "../../../../context/ColorContext";
-import { useLoginContext } from "../../../../context/LoginContext";
+import { useColorContext } from "../../../context/ColorContext";
+import { useLoginContext } from "../../../context/LoginContext";
 import "./Login.css";
 
 type Props = {
@@ -20,11 +20,13 @@ const Profile = (props: Props) => {
   };
 
   ref.current?.addEventListener("click", isClickOutSide);
+
   const handleSignOut = () => {
     setLogin(false);
     props.setOpen(false);
     window.localStorage.removeItem("token");
   };
+
   return (
     <div
       className={`${

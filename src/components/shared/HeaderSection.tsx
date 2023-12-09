@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Sidebar from "./navbar/Sidebar";
-import Login from "../pages/checkout/login/Login";
+import Login from "./login/Login";
 import Navbar from "./navbar/Navbar";
 import { useLoginModalContext } from "../../context/LoginModalContext";
 

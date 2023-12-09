@@ -1,5 +1,5 @@
-import { ProductProps } from "../../shared/product/ProductList";
-import ProductItem from "./product/ProductItem";
+import { ProductProps } from "../../../shared/product/ProductList";
+import ProductItem from "./productItem/ProductItem";
 
 export interface ProductSection extends ProductProps {
   quantity: number;

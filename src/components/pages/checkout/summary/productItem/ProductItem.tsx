@@ -16,8 +16,8 @@ export default function ProductItem({
       <div>
         <div className="flex justify-between text-2xl mb-5 px-4 font-margarine text-white">
           <div className="flex flex-col w-4/12 text-white">
-            <span className=" text-lg">{title}</span>
-            <span className=" text-gray-200 text-lg">major: {major}</span>
+            <span className="text-lg">{title}</span>
+            <span className="text-gray-200 text-lg">major: {major}</span>
           </div>
 
           <div className="w-8/12 flex justify-between text-lg text-gray-200">
