@@ -36,7 +36,6 @@ const ProductDetails = ({ name, price, img, major, id }: ProductProps) => {
     });
 
     toast.success(`Added ${name}`);
-    console.log(cart);
   };
 
   const handleToggleFavourite = () => {

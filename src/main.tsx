@@ -8,6 +8,9 @@ import { FavourteProvider } from "./context/favourite/FavouriteContext.tsx";
 import { FacultyProvider } from "./context/category/FacultyContex.tsx";
 import { CategoryMajorProvider } from "./context/category/CategoryMajorContext.tsx";
 import { CategoryProvider } from "./context/category/CategoryContext.tsx";
+import { LoginModalProvider } from "./context/LoginModalContext.tsx";
+import { LoginProvider } from "./context/LoginContext.tsx";
+
 
 
 
@@ -22,7 +25,13 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <FacultyProvider>
               <CategoryMajorProvider>
                 <CategoryProvider >
-                  <AppContent />
+                  <LoginModalProvider >
+                  <LoginProvider >
+
+                    <AppContent />
+                  </LoginProvider >
+
+                  </LoginModalProvider>
                 </CategoryProvider>
               </CategoryMajorProvider>
             </FacultyProvider>

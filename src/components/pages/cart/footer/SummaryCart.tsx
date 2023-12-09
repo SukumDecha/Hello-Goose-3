@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
 import { useColorContext } from "../../../../context/ColorContext";
 import { useCartContext } from "../../../../context/cart/CartContext";
+import { useLoginContext } from "../../../../context/LoginContext";
+import { useNavigate } from 'react-router-dom'
 import "./SummaryCart.css";
+import { useLoginModalContext } from "../../../../context/LoginModalContext";
 interface SummaryCartProps {
   totalPrice: number;
   selectedItem: number[];
@@ -9,14 +11,23 @@ interface SummaryCartProps {
 const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
   const { color } = useColorContext();
   const { setCart } = useCartContext();
+  const { login } = useLoginContext();
   const ringColor = `ring-2 ring-${color}-300`;
+  const navigate = useNavigate();
+  const { setLoginModal } = useLoginModalContext();
 
   const handleClick = () => {
+   
+    if (!login) {
+      setLoginModal(true)
+      return
+    }
     setCart((prev) => {
       return [
         ...prev.filter((item) => selectedItem.some((s) => s === item.id)),
       ];
     });
+    navigate("/checkout")
   };
 
   return (
@@ -73,7 +84,7 @@ const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
             <span className={`text-md`}>{`฿ ${totalPrice}`}</span>
           </div>
 
-          <Link to={"/checkout"} onClick={handleClick}>
+          <button onClick={handleClick}>
             {" "}
             <div
               className={`flex justify-between mt-2 p-2.5 rounded-2xl bg-white/20 hover-big`}
@@ -81,7 +92,7 @@ const SummaryCart = ({ totalPrice, selectedItem }: SummaryCartProps) => {
               <span className={`text-white text-md`}>Check out</span>
               <span className={`text-white text-md`}>{`฿ ${totalPrice}`}</span>
             </div>
-          </Link>
+          </button>
         </div>
       </div>
     </div>
